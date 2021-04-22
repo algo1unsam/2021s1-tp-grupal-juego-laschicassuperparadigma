@@ -6,3 +6,10 @@ program juego {
 	game.addVisual(pepita)
 	game.start()
 }
+
+//}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+//object pruebafede {
+	//method howAreYou() {
+		//return 'prueba de cambio'
+	//}//
+//}
