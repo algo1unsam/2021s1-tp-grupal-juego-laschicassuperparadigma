@@ -1,0 +1,13 @@
+import wollok.game.*
+import nave.*
+import invaders.*
+import niveles.*
+
+program PepitaGame {
+	game.title("Space Invaders")
+		// game.height(10) 	Alto
+		// game.width(10) 	Ancho
+		// game.boardGround("unFondo.jpg")
+		// nivel1.iniciar()
+	game.start()
+}
