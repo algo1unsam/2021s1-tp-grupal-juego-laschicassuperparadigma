@@ -1,0 +1,12 @@
+import wollok.game.*
+import nave.*
+//import invaders.*
+
+describe "Neve" {
+
+	test "testX" {
+
+		assert.that(true)
+
+	}
+}
