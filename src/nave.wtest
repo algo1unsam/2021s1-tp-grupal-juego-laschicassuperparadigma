@@ -3,13 +3,20 @@ import nave.*
 //import invaders.*
 
 describe "Nave" {
-
+	//const nave = new Nave(position = game.at(game.center().x(), 0))
+	
+	test " Setear posicion" {
+		nave.position(4)
+		
+		assert.equals(4,nave.position().x())
+	}
 	test "La posicion del objeto instanciado de la clase LaserNave coincide con la de la nave en el momento de instanciarlo" {
 		nave.position(4)
-	
-		const laserNave1 = new LaserNave()
 		
-		assert.that(laserNave1.position().x() == 4)
+		nave.disparar()
+		
+		const laserNave1 = nave.lasersDisparados().get(0)
+		assert.equals(4,laserNave1.position().x())
 	}
 	// Testear que avance bien, no se comose hace para esperar un cierto tiempo antes de correr el tst
 	test "Disparar" {

@@ -1,15 +1,20 @@
 import wollok.game.*
 
-object nave {
-	var position = game.at(game.center().x(), 0) 	// La nave empieza en el centro y abajo de todo
-	var vidas = 3
+class Astronave {
+	var position
 	var lasersDisparados = []	// Esto lo creo para que los lasers que crean el método disparar no mueran con el metodo. No se si hay alguna otra manera de hacerlo
-	
-	method position() = position
 	
 	method lasersDisparados() = lasersDisparados
 	
+	method positionX() = position.x()
+	
 	method position(x) { position = game.at(x,0) } 	// Setea la posicion en X manteniendo la posicion en Y siempre en 0
+}
+class Nave inherits Astronave{
+	//var position = game.at(game.center().x(), 0) 	// La nave empieza en el centro y abajo de todo
+	var vidas = 3
+	
+	method position() = position
 	
 	method vidas() = vidas
 
@@ -19,18 +24,18 @@ object nave {
 		vidas -= 1
 	}
 	
-	method positionX() = position.x()
-	
 	method disparar() {
 		// instancio un objeto LaserNave y lo agrego a la lista
-		lasersDisparados.add(new LaserNave())
-		
+		// El laser arranca en la misma posicion que la nave en X y uno mas arriba en Y
+		lasersDisparados.add(new LaserNave(position = game.at(nave.positionX(),1))) 	
 	}
 
 }	
 
+const nave = new Nave(position = game.at(game.center().x(), 0)) 	
+
 class LaserNave {
-	var property position = game.at(nave.positionX(),1)	// El laser arranca en la misma posicion que la nave en X y uno mas arriba en Y
+	var property position	
 	
 	method avanzar(){
 		// Cada 500 ms la bala avanza hacia arriba una celda
