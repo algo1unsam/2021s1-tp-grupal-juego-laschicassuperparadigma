@@ -47,6 +47,8 @@ class Nave inherits Astronave {
 		game.addVisual(lasersDisparados.first())
 		
 	}
+	
+	
 
 }
 

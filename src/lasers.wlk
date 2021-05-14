@@ -4,7 +4,11 @@ import naves.*
 class LaserNave {
 
 	var property position
-
+     
+     
+     //prueba!!!!!!!!
+     
+     
 	method image() = "Rayo.png"
 
 	method avanzar() {
