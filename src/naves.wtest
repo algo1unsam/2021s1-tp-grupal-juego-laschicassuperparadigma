@@ -1,27 +1,39 @@
 import wollok.game.*
-import nave.*
-//import invaders.*
+import naves.*
+import lasers.*
+import niveles.*
 
 describe "Nave" {
 	//const nave = new Nave(position = game.at(game.center().x(), 0))
 	
-	test " Setear posicion" {
-		nave.position(4)
+	test "Setear posicion" {
+		nave.posicion(4,0)
 		
-		assert.equals(4,nave.position().x())
+		assert.equals(game.at(4,0),nave.position())
 	}
-	test "La posicion del objeto instanciado de la clase LaserNave coincide con la de la nave en el momento de instanciarlo" {
-		nave.position(4)
-		
-		nave.disparar()
-		
-		const laserNave1 = nave.lasersDisparados().get(0)
-		assert.equals(4,laserNave1.position().x())
-	}
-	// Testear que avance bien, no se comose hace para esperar un cierto tiempo antes de correr el tst
 	test "Disparar" {
 		nave.disparar()
-		
-		assert.equals(1,nave.lasersDisparados().size())
+		assert.equals(1, nave.lasersDisparados().size())
+	
 	}
+	/* 
+	test "La choca un laser" {
+		assert.equals(3,nave.vidas())
+		
+		const laserInvader = new LaserInvader(position = game.at(4,4))
+		
+		game.addVisual(laserInvader)
+		game.addVisual(nave)
+
+		game.whenCollideDo(nave, { algo => nave.chocarCon(algo) })
+		
+		nave.posicion(4,4)
+		
+		//assert.that(nave.position() == laserInvader.position())
+		
+		// Al estar la nave en la misma posicion que el laser pierde una vida
+		assert.equals(2,nave.vidas())
+		
+	}
+	/**/
 }

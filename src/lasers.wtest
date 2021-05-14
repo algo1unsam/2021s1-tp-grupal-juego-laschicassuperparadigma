@@ -1,20 +1,30 @@
 import wollok.game.*
-//import nave.*
-import invaders.*
+import naves.*
+import lasers.*
+
+describe "Nave" {
+
+	test "La posicion del laser coincide con la de la nave en el momento de instanciarlo" {
+		nave.posicion(4, 0)
+		nave.disparar()
+		const laserNave1 = nave.lasersDisparados().get(0)
+		assert.equals(game.at(4, 1), laserNave1.position())
+	}
+
+
+// Testear que avance bien, no se como se hace para esperar un cierto tiempo antes de correr el test
+}
 
 describe "Invaders" {
 
-	test "testX" {
+	const invader1 = new Invader()
 
-		assert.that(true)
-
+	test "La posicion del objeto LaserInvader coincide con la de la nave en el momento de instanciarlo" {
+		invader1.posicion(4, 4)
+		invader1.disparar()
+		const laserNave1 = invader1.lasersDisparados().get(0)
+		assert.equals(game.at(4, 3), laserNave1.position())
 	}
+
 }
 
-describe "Laser" {
-	test "testX" {
-
-		assert.that(true)
-
-	}
-}
