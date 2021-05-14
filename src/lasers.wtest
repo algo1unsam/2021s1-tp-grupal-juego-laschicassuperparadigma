@@ -17,7 +17,7 @@ describe "Nave" {
 
 describe "Invaders" {
 
-	const invader1 = new Invader()
+	const invader1 = new Dalek()
 
 	test "La posicion del objeto LaserInvader coincide con la de la nave en el momento de instanciarlo" {
 		invader1.posicion(4, 4)

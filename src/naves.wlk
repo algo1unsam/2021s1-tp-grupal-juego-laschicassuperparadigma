@@ -33,7 +33,7 @@ class Nave inherits Astronave {
 
 	method vidas() = vidas
 
-	// method image() =//"nave.png"
+	method image() = "Nave.png"
 	method chocarCon(algo) {
 		vidas -= 1
 		algo.destruirse()
@@ -43,6 +43,9 @@ class Nave inherits Astronave {
 		// instancio un objeto LaserNave y lo agrego a la lista
 		// El laser arranca en la misma posicion que la nave en X y uno mas arriba en Y
 		lasersDisparados.add(new LaserNave(position = self.position().up(1)))
+		lasersDisparados.first().avanzar()
+		game.addVisual(lasersDisparados.first())
+		
 	}
 
 }
@@ -59,16 +62,16 @@ class Invader inherits Astronave {
 
 class Sontaran inherits Invader {
 	
-	// method image() = return "nave.png"
+	// method image() = "naBe.png"
 	override method puntosQueDa() = 10
 }
 class VashtaNerada inherits Invader {
-	// method image() = return "nave.png"
+	// method image() =  "Bicho1.png"
 	override method puntosQueDa() = 20
 }
 
 class Dalek inherits Invader {
-	// method image() = return "nave.png"
+	method image() = "Bicho5.png"
 	override method puntosQueDa() = 40
 }
 const nave = new Nave(position = game.at(game.center().x(), 0))

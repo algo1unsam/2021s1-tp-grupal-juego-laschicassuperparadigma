@@ -5,7 +5,7 @@ import lasers.*
 object nivel1 {
 	//Esto seria para probar. Deberia haber un invader en el medio sin hacer nada y la nave que pueda disparar
 	method iniciar() {
-		const invader1 = new Invader()
+		const invader1 = new Dalek()
 		game.addVisual(nave) 	// Muestro el objeto en pantalla
 		game.addVisual(invader1)
 		configurar.teclas()
