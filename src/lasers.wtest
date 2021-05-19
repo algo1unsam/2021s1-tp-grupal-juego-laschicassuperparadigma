@@ -2,29 +2,40 @@ import wollok.game.*
 import naves.*
 import lasers.*
 
-describe "Nave" {
+describe "Laser nave" {
 
-	test "La posicion del laser coincide con la de la nave en el momento de instanciarlo" {
-		nave.posicion(4, 0)
-		nave.disparar()
-		const laserNave1 = nave.lasersDisparados().get(0)
-		assert.equals(game.at(4, 1), laserNave1.position())
+	const laserNave = new LaserNave(position = game.at(5, 5))
+
+	test "Ir a posicion siguiente" {
+		laserNave.irAPosicionSiguiente()
+		assert.equals(game.at(5, 6), laserNave.position())
 	}
 
+	test "Al ser disparado el laser avanza y se agega el visual" {
+		laserNave.serDisparado()
+		assert.equals(game.at(5, 6), laserNave.position()) // Va a la posicion siguiente que es uno mas arriba
+		assert.that(game.allVisuals().contains(laserNave)) // Añade el visual
+	}
 
-// Testear que avance bien, no se como se hace para esperar un cierto tiempo antes de correr el test
+	test "Al chocar con algo el laser se destruye y ese algo tambien" {
+		const invader = new Dalek(position = game.at(7, 7))
+		game.addVisual(invader)
+		game.addVisual(laserNave)
+		// invader.position(game.at(5,5)) // Misma posicion que el laser // Con esto no choca, no se por que
+		laserNave.chocarCon(invader)
+		assert.notThat(game.allVisuals().contains(laserNave)) // Añade el visual
+		assert.notThat(game.allVisuals().contains(invader)) // Añade el visual
+	}
+
 }
 
 describe "Invaders" {
 
-	const invader1 = new Dalek()
+	const laserInvader = new LaserInvader(position = game.at(5, 5))
 
-	test "La posicion del objeto LaserInvader coincide con la de la nave en el momento de instanciarlo" {
-		invader1.posicion(4, 4)
-		invader1.disparar()
-		const laserNave1 = invader1.lasersDisparados().get(0)
-		assert.equals(game.at(4, 3), laserNave1.position())
+	test "Ir a posicion siguiente" {
+		laserInvader.irAPosicionSiguiente()
+		assert.equals(game.at(5, 4), laserInvader.position())
 	}
 
 }
-

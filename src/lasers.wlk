@@ -1,35 +1,55 @@
 import wollok.game.*
 import naves.*
 
-class LaserNave {
+class Laser {
 
 	var property position
-     
-     
-     //prueba!!!!!!!!
-     
-     
+	var destruido = false
+
+	method serDisparado() {
+		self.irAPosicionSiguiente() // En la nave es uno mas arriba, en los invaders uno mas abajo
+		self.avanzar()
+		game.addVisual(self) // Al ser disparado se muestra en pantalla
+		self.configurarColicion()
+	}
+
+	method avanzar() {
+		game.onTick(200, "DISPARO NAVE", { self.irAPosicionSiguiente()})
+	}
+
+	method irAPosicionSiguiente() // Metodo abstracto. Los lasers lo tienen que tener para que funcione avanzar() y serDisparado()
+
+	method configurarColicion() {
+		game.whenCollideDo(self, { algo => self.chocarCon(algo)})
+	}
+
+	method chocarCon(algo) {
+		self.destruirse()
+		algo.destruirse()
+	}
+
+	method destruirse() {
+		destruido = true
+		game.removeVisual(self)
+		// sacar onTick
+	}
+
+}
+
+class LaserNave inherits Laser {
+
 	method image() = "Rayo.png"
 
-	method avanzar() {
-		// Cada 500 ms la bala avanza hacia arriba una celda
-		game.onTick(500, "DISPARO NAVE", { self.tiro()})
-	}
-
-	method tiro() {
-		 position = position.up(1)
+	override method irAPosicionSiguiente() {
+		position = position.up(1)
 	}
 
 }
 
-class LaserInvader {
+class LaserInvader inherits Laser {
 
-	var property position // El laser arranca en la misma posicion que la nave en X y uno mas arriba en Y
-
-	method avanzar() {
-		// Cada 500 ms la bala avanza hacia arriba una celda
-		game.onTick(500, "DISPARO INVADER", { position = self.position().down(1)})
+	override method irAPosicionSiguiente() {
+		position = position.down(1)
 	}
 
 }
-

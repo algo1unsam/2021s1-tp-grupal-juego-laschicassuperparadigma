@@ -9,8 +9,6 @@ class Astronave {
 
 	method lasersDisparados() = lasersDisparados
 
-	method positionX() = position.x()
-
 	method posicion(x, y) {
 		position = game.at(x, y)
 	}
@@ -21,10 +19,24 @@ class Astronave {
 
 	method destruirse() {
 		destruido = true
+		game.removeVisual(self)
 	//
 	}
 
-	//method image()  Hacer metodo abstracto para que todas las naves tengan que sobreescribirlo?
+	method image() // Metodo abstracto, todas las naves tienen que tenerlo
+
+	method retornarNuevoLaser()
+
+	method disparar() {
+		// instancio un objeto LaserNave y lo agrego a la lista
+		lasersDisparados.add(self.retornarNuevoLaser())
+		lasersDisparados.last().serDisparado() // Disparo el que acabo de crear
+	}
+
+//	method chocarCon(algo) {
+//		nave.destruirse()
+//		algo.destruirse()
+//	}
 }
 
 class Nave inherits Astronave {
@@ -33,48 +45,45 @@ class Nave inherits Astronave {
 
 	method vidas() = vidas
 
-	method image() = "Nave.png"
-	method chocarCon(algo) {
-		vidas -= 1
-		algo.destruirse()
-	}
+	override method image() = "Nave.png"
 
-	method disparar() {
-		// instancio un objeto LaserNave y lo agrego a la lista
-		// El laser arranca en la misma posicion que la nave en X y uno mas arriba en Y
-		lasersDisparados.add(new LaserNave(position = self.position().up(1)))
-		lasersDisparados.first().avanzar()
-		game.addVisual(lasersDisparados.first())
-		
-	}
-	
-	
+//	override method chocarCon(algo) {
+//		vidas -= 1
+//		super(algo) // Ejecuta el metodo padfre
+//	}
+
+	override method retornarNuevoLaser() = new LaserNave(position = self.position())
 
 }
 
 class Invader inherits Astronave {
 
-	method disparar() {
-		lasersDisparados.add(new LaserInvader(position = self.position().down(1)))
-	}
-	
 	method puntosQueDa()
-	
+
+	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
+
 }
 
 class Sontaran inherits Invader {
-	
+
 	// method image() = "naBe.png"
 	override method puntosQueDa() = 10
+
 }
+
 class VashtaNerada inherits Invader {
+
 	// method image() =  "Bicho1.png"
 	override method puntosQueDa() = 20
+
 }
 
 class Dalek inherits Invader {
-	method image() = "Bicho5.png"
-	override method puntosQueDa() = 40
-}
-const nave = new Nave(position = game.at(game.center().x(), 0))
 
+	override method image() = "Bicho5.png"
+
+	override method puntosQueDa() = 40
+
+}
+
+const nave = new Nave(position = game.at(game.center().x(), 0))

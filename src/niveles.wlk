@@ -9,7 +9,7 @@ object nivel1 {
 		game.addVisual(nave) 	// Muestro el objeto en pantalla
 		game.addVisual(invader1)
 		configurar.teclas()
-		configurar.colisiones()
+		//configurar.colisiones()
 	}
 }
 
@@ -31,7 +31,7 @@ object configurar {
 		keyboard.right().onPressDo({ nave.position(nave.position().right(1)) })
 		keyboard.space().onPressDo({ nave.disparar() })
 	}
-	method colisiones() {
-		game.whenCollideDo(nave, { algo => nave.chocarCon(algo) })
-	}
+//	method colisiones() {
+//		game.whenCollideDo(nave, { algo => nave.chocarCon(algo) })
+//	}
 }
