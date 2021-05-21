@@ -79,11 +79,22 @@ class VashtaNerada inherits Invader {
 }
 
 class Dalek inherits Invader {
-
+	var sonidoChoque = new Sound(file = "explosion.wav")
+	
 	override method image() = "Bicho5.png"
-
+	
 	override method puntosQueDa() = 40
 
+	// Pongo esto provisoriamente para probar el sonido en esta nave
+	// Todas las naves pueden tener un sonido cuando se destruyen. Habria que agregar eso.
+	// Hacer esta parte es bastante clave para entender y juntar todos los temas que vimos.
+	// Lo dejo por si alguno quiere pensarlo
+	override method destruirse() {
+		destruido = true
+		game.removeVisual(self)
+		sonidoChoque.play()
+	//
+	}
 }
 
 const nave = new Nave(position = game.at(game.center().x(), 0))

@@ -38,6 +38,7 @@ class Laser {
 
 class LaserNave inherits Laser {
 
+	
 	method image() = "Rayo.png"
 
 	override method irAPosicionSiguiente() {
