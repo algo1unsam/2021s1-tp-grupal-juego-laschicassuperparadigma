@@ -9,6 +9,6 @@ program SpaceInvaders {
 	game.width(30) 	//Ancho
 	game.cellSize(25) // Cambio el tamaño de las celdas
 	game.boardGround("UnFondo.jpg")
-	nivel1.iniciar()
+	nivel2.iniciar()
 	game.start()
 }

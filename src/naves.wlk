@@ -56,13 +56,7 @@ class Nave inherits Astronave {
 
 }
 
-class Invader inherits Astronave {
 
-	method puntosQueDa()
-
-	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
-
-}
 
 class Sontaran inherits Invader {
 
@@ -97,4 +91,11 @@ class Dalek inherits Invader {
 	}
 }
 
+class Invader inherits Astronave {
+
+	method puntosQueDa()
+
+	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
+
+}
 const nave = new Nave(position = game.at(game.center().x(), 0))

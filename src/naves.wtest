@@ -7,7 +7,7 @@ describe "Nave" {
 
 	// const nave = new Nave(position = game.at(game.center().x(), 0))
 	test "Setear posicion" {
-		nave.position(4, 0)
+		nave.position(game.at(4, 0))
 		assert.equals(game.at(4, 0), nave.position())
 	}
 
@@ -16,4 +16,16 @@ describe "Nave" {
 		assert.equals(1, nave.lasersDisparados().size())
 	}
 
+}
+describe "Niveles"{
+
+	test "Posicion nuevo invader"{
+		assert.equals(game.at(2,20),nivel2.posicionNuevoInvader(1,6))
+		assert.equals(game.at(7,20),nivel2.posicionNuevoInvader(2,6))
+		assert.equals(game.at(12,20),nivel2.posicionNuevoInvader(3,6))
+		assert.equals(game.at(17,20),nivel2.posicionNuevoInvader(4,6))
+		assert.equals(game.at(22,20),nivel2.posicionNuevoInvader(5,6))
+		assert.equals(game.at(27,20),nivel2.posicionNuevoInvader(6,6))
+	}
+	
 }
