@@ -14,7 +14,7 @@ class Laser {
 	}
 
 	method avanzar() {
-		game.onTick(200, "DISPARO NAVE", { self.irAPosicionSiguiente()})
+		game.onTick(100, "DISPARO NAVE" + self.identity().toString(), { self.irAPosicionSiguiente()})
 	}
 
 	method irAPosicionSiguiente() // Metodo abstracto. Los lasers lo tienen que tener para que funcione avanzar() y serDisparado()
@@ -31,7 +31,7 @@ class Laser {
 	method destruirse() {
 		destruido = true
 		game.removeVisual(self)
-		// sacar onTick
+		game.removeTickEvent("DISPARO NAVE" + self.identity().toString()) 	// Elimino onTick para este laser en particular
 	}
 
 }

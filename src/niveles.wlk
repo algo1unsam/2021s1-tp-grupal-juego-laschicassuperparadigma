@@ -29,7 +29,7 @@ object nivel2 {
 	}
 	method iniciar() {
 		game.addVisual(nave)
-		self.crearInvaders(6)
+		self.crearInvaders(8)
 		configurar.teclas()
 	}
 }
