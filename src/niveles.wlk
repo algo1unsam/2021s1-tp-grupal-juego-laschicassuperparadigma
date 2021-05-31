@@ -27,9 +27,18 @@ object nivel2 {
 		
 		return game.at(posicionPrimerInvader + separacionEntreInvaders*(i-1),20) // El i arranca en 1 en el times. Despues cambiar el 20
 	}
+	
+	method moverInvaders(tiempo) {
+		game.onTick(tiempo,"mover invaders",{ 
+			invaders.forEach({ invader => invader.position(invader.position().right(1)) })
+			game.schedule(tiempo/2,{ invaders.forEach({ invader => invader.position(invader.position().left(1)) }) })
+		})
+	}
+
 	method iniciar() {
 		game.addVisual(nave)
-		self.crearInvaders(8)
+		self.crearInvaders(6)
+		self.moverInvaders(2000)
 		configurar.teclas()
 	}
 }

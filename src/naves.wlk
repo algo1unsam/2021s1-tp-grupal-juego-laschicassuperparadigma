@@ -87,7 +87,7 @@ class Dalek inherits Invader {
 		destruido = true
 		game.removeVisual(self)
 		sonidoChoque.play()
-	//
+		
 	}
 }
 
@@ -96,6 +96,16 @@ class Invader inherits Astronave {
 	method puntosQueDa()
 
 	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
+	
+//	method moverse(tiempo) {
+//		game.onTick(tiempo,"Moverse a la derecha" + self.identity().toString(), { position = position.right(1) })
+//		game.schedule(tiempo/2, { game.onTick(tiempo,"Moverse a la izquierda" + self.identity().toString(), { position = position.left(1) }) })
+//	}
+		
+//	method dejarDeMoverse() {
+//		game.removeTickEvent("Moverse a la derecha" + self.identity().toString())
+//		game.removeTickEvent("Moverse a la izquierda" + self.identity().toString())
+//	}
 
 }
 const nave = new Nave(position = game.at(game.center().x(), 0))

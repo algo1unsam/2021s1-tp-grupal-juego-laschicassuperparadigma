@@ -17,7 +17,11 @@ class Laser {
 		game.onTick(100, "DISPARO NAVE" + self.identity().toString(), { self.irAPosicionSiguiente()})
 	}
 
-	method irAPosicionSiguiente() // Metodo abstracto. Los lasers lo tienen que tener para que funcione avanzar() y serDisparado()
+	method irAPosicionSiguiente() {
+		if(self.estaFueraDeLaPantalla()) {
+			self.destruirse()
+		}
+	}
 
 	method configurarColicion() {
 		game.whenCollideDo(self, { algo => self.chocarCon(algo)})
@@ -33,6 +37,7 @@ class Laser {
 		game.removeVisual(self)
 		game.removeTickEvent("DISPARO NAVE" + self.identity().toString()) 	// Elimino onTick para este laser en particular
 	}
+	method estaFueraDeLaPantalla() = position.y() > game.height()
 
 }
 
@@ -42,6 +47,7 @@ class LaserNave inherits Laser {
 	method image() = "Rayo.png"
 
 	override method irAPosicionSiguiente() {
+		super() // Si está afuera de la pantalla lo destruye
 		position = position.up(1)
 	}
 
@@ -50,6 +56,7 @@ class LaserNave inherits Laser {
 class LaserInvader inherits Laser {
 
 	override method irAPosicionSiguiente() {
+		super()
 		position = position.down(1)
 	}
 
