@@ -19,6 +19,10 @@ class Nivel {
 	method siguiente()
 
 }
+object pantallaInicial {
+	//method image() = alguna imagen
+	
+}
 
 // Invader en el medio que no hace nada
 object nivel1 inherits Nivel {
