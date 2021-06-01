@@ -54,9 +54,11 @@ class LaserNave inherits Laser {
 }
 
 class LaserInvader inherits Laser {
+	
+	method image() = "Rayo.png" // Cambiar imagen y hacer metodo image abstracto
 
 	override method irAPosicionSiguiente() {
-		super()
+		super() 	// Si está afuera de la pantalla lo destruye
 		position = position.down(1)
 	}
 

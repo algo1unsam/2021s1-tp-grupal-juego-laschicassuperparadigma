@@ -22,8 +22,8 @@ object nivel2 {
 	}
 	
 	method posicionNuevoInvader(i,total){
-		const separacionEntreInvaders = ((30-2)/total).truncate(0) + 1 // Le resto dos para que no se pongan en el borde. Cambiar el 30 por widht
-		const posicionPrimerInvader = ((30-2)-(separacionEntreInvaders -1)*total)/2// Marca los espacios que hay que dejar antes de poner al primer invader
+		const separacionEntreInvaders = ((game.width()-2)/total).truncate(0) + 1 // Le resto dos para que no se pongan en el borde. Cambiar el 30 por widht
+		const posicionPrimerInvader = ((game.width()-2)-(separacionEntreInvaders -1)*total)/2// Marca los espacios que hay que dejar antes de poner al primer invader
 		
 		return game.at(posicionPrimerInvader + separacionEntreInvaders*(i-1),20) // El i arranca en 1 en el times. Despues cambiar el 20
 	}
@@ -33,14 +33,21 @@ object nivel2 {
 			invaders.forEach({ invader => invader.position(invader.position().right(1)) })
 			game.schedule(tiempo/2,{ invaders.forEach({ invader => invader.position(invader.position().left(1)) }) })
 		})
+		game.onTick(tiempo*4,"Bajar invaders", { invaders.forEach({ invader => invader.position(invader.position().down(1)) }) })
 	}
 
+	method dispararLasersInvaders(tiempo) {
+		game.onTick(tiempo,"Disparar invaders",{ invaders.anyOne().disparar() })
+	}
 	method iniciar() {
 		game.addVisual(nave)
 		self.crearInvaders(6)
-		self.moverInvaders(2000)
+		self.moverInvaders(1000)
+		self.dispararLasersInvaders(3000)
 		configurar.teclas()
 	}
+
+	//Agregar un gameover si los invaders llegan al piso
 }
 
 object nivel3 {

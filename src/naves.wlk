@@ -97,6 +97,7 @@ class Invader inherits Astronave {
 
 	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
 	
+	
 //	method moverse(tiempo) {
 //		game.onTick(tiempo,"Moverse a la derecha" + self.identity().toString(), { position = position.right(1) })
 //		game.schedule(tiempo/2, { game.onTick(tiempo,"Moverse a la izquierda" + self.identity().toString(), { position = position.left(1) }) })
