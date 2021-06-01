@@ -29,7 +29,7 @@ describe "Niveles"{
 //	}
 
 	test "Fila mas baja" {
-		nivel2.crearInvaders(6,4,0,18)
+		flotaInvader.crearInvaders(6,4,0,18)
 		assert.equals(16,flotaInvader.posicionYMasBaja())
 	}
 	

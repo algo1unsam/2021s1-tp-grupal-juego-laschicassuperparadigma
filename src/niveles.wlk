@@ -16,44 +16,13 @@ object nivel1 {
 
 object nivel2 {
 
-	method crearInvaders(n,separacion,xPrimerInvader,y) { // Esto no me gusta, despues habria que hubicarlos donde van y listo
-		// Daleks. Los mas malos arriba de todo
-		(n-1).times({ i => flotaInvader.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion+(separacion/2),y))) })
-		
-		// Los del medio. Cambiar el Dalek por el bicho2 ///////
-		n.times({ i => flotaInvader.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion,y-1))) })
-		
-		// Bicho1. Los mas buenitos abajo de todo. Cambiar por Bicho1///////
-		(n-1).times({ i => flotaInvader.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion+(separacion/2),y-2))) })
-		
-		flotaInvader.invaders().forEach({ invader => game.addVisual(invader)})
-	}
-
-
-	method moverInvaders(tiempo) {
-		game.onTick(tiempo, "mover invaders", { flotaInvader.invaders().forEach({ invader => invader.position(invader.position().right(1))})
-			game.schedule(tiempo / 2, { flotaInvader.invaders().forEach({ invader => invader.position(invader.position().left(1))})})
-		})
-		game.onTick(tiempo * 4, "Bajar invaders", { flotaInvader.invaders().forEach({ invader => invader.position(invader.position().down(1))})})
-	}
-
-	// Dispara si hay invaders. Gano si no
-	method dispararLasersInvaders(tiempo) {
-		game.onTick(tiempo, "Disparar invaders", { 
-			if(not flotaInvader.invaders().isEmpty()) {
-				flotaInvader.filaMasBaja().anyOne().disparar() //Disparan unicamente los unvaders que estan abajo de todo
-			}
-//			else {
-//				// Gano
-//			}
-		})
-	}
+	
 
 	method iniciar() {
 		game.addVisual(nave)
-		self.crearInvaders(6,4,0,18)
-		self.moverInvaders(1000)
-		self.dispararLasersInvaders(3000)
+		flotaInvader.crearInvaders(6,4,0,18)
+		flotaInvader.moverInvaders(1000)
+		flotaInvader.dispararLasersInvaders(3000)
 		configurar.teclas()
 	}
 
@@ -65,6 +34,11 @@ object nivel3 {
 
 
 	method iniciar() {
+		game.addVisual(nave)
+		flotaInvader.crearInvaders(11,2,0,18)
+		flotaInvader.moverInvaders(1000)
+		flotaInvader.dispararLasersInvaders(3000)
+		configurar.teclas()
 		self.iniciarBerretinesInvaders(8000)
 	}
 
@@ -94,4 +68,37 @@ object flotaInvader {
 	method posicionYMasBaja() = invaders.map({ invader => invader.position().y()}).min()
 	
 	method filaMasBaja() = invaders.filter({ invader => invader.position().y() == self.posicionYMasBaja()})
+	
+	method crearInvaders(n,separacion,xPrimerInvader,y) { // Esto no me gusta, despues habria que hubicarlos donde van y listo
+		// Daleks. Los mas malos arriba de todo
+		(n-1).times({ i => self.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion+(separacion/2),y))) })
+		
+		// Los del medio. Cambiar el Dalek por el bicho2 ///////
+		n.times({ i => self.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion,y-1))) })
+		
+		// Bicho1. Los mas buenitos abajo de todo. Cambiar por Bicho1///////
+		(n-1).times({ i => self.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion+(separacion/2),y-2))) })
+		
+		self.invaders().forEach({ invader => game.addVisual(invader)})
+	}
+
+
+	method moverInvaders(tiempo) {
+		game.onTick(tiempo, "mover invaders", { self.invaders().forEach({ invader => invader.position(invader.position().right(1))})
+			game.schedule(tiempo / 2, { self.invaders().forEach({ invader => invader.position(invader.position().left(1))})})
+		})
+		game.onTick(tiempo * 4, "Bajar invaders", { self.invaders().forEach({ invader => invader.position(invader.position().down(1))})})
+	}
+
+	// Dispara si hay invaders. Gano si no
+	method dispararLasersInvaders(tiempo) {
+		game.onTick(tiempo, "Disparar invaders", { 
+			if(not self.invaders().isEmpty()) {
+				self.filaMasBaja().anyOne().disparar() //Disparan unicamente los unvaders que estan abajo de todo
+			}
+//			else {
+//				// Gano
+//			}
+		})
+	}
 }
