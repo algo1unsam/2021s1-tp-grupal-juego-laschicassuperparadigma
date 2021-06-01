@@ -2,6 +2,7 @@ import wollok.game.*
 import lasers.*
 import niveles.*
 
+
 class Astronave {
 
 	var property position = game.center()
@@ -68,7 +69,7 @@ class Bicho1 inherits Invader {
 
 class Bicho2 inherits Invader {
 
-	// method image() =  "Bicho1.png"
+	override method image() =  "Bicho1.png" 	////////////// Cambiar imagen
 	override method puntosQueDa() = 20
 
 }
@@ -89,7 +90,7 @@ class Dalek inherits Invader {
 		game.removeVisual(self)
 		sonidoChoque.play()
 		//
-		juego.quitarInvader(self)
+		flotaInvader.quitarInvader(self)
 		
 	}
 	

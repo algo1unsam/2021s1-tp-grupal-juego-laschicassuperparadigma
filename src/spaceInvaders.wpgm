@@ -5,8 +5,8 @@ import niveles.*
 
 program SpaceInvaders {
 	game.title("Space Invaders")
-	game.height(20) //	Alto
-	game.width(20) 	//Ancho
+	game.height(22) //	Alto
+	game.width(22) 	//Ancho
 	game.cellSize(25) // Cambio el tamaño de las celdas
 	game.boardGround("UnFondo.jpg")
 	nivel2.iniciar()

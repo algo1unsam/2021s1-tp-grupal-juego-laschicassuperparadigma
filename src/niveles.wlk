@@ -16,39 +16,42 @@ object nivel1 {
 
 object nivel2 {
 
-	method crearInvaders(n) { // Esto no me gusta, despues habria que hubicarlos donde van y listo
-		n.times({ i => juego.agregarInvader(new Dalek(position = self.posicionNuevoInvader(i, n)))})
-		juego.invaders().forEach({ invader => game.addVisual(invader)})
+	method crearInvaders(n,separacion,xPrimerInvader,y) { // Esto no me gusta, despues habria que hubicarlos donde van y listo
+		// Daleks. Los mas malos arriba de todo
+		(n-1).times({ i => flotaInvader.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion+(separacion/2),y))) })
+		
+		// Los del medio. Cambiar el Dalek por el bicho2 ///////
+		n.times({ i => flotaInvader.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion,y-1))) })
+		
+		// Bicho1. Los mas buenitos abajo de todo. Cambiar por Bicho1///////
+		(n-1).times({ i => flotaInvader.agregarInvader(new Dalek(position = game.at(xPrimerInvader+(i-1)*separacion+(separacion/2),y-2))) })
+		
+		flotaInvader.invaders().forEach({ invader => game.addVisual(invader)})
 	}
 
-	method posicionNuevoInvader(i, total) {
-		const separacionEntreInvaders = ((game.width() - 2) / total).truncate(0) + 1 // Le resto dos para que no se pongan en el borde.
-		const posicionPrimerInvader = ((game.width() - 2) - (separacionEntreInvaders - 1) * total) / 2 // Marca los espacios que hay que dejar antes de poner al primer invader
-		return game.at(posicionPrimerInvader + separacionEntreInvaders * (i - 1), 18) // El i arranca en 1 en el times. Despues cambiar el 20
-	}
 
 	method moverInvaders(tiempo) {
-		game.onTick(tiempo, "mover invaders", { juego.invaders().forEach({ invader => invader.position(invader.position().right(1))})
-			game.schedule(tiempo / 2, { juego.invaders().forEach({ invader => invader.position(invader.position().left(1))})})
+		game.onTick(tiempo, "mover invaders", { flotaInvader.invaders().forEach({ invader => invader.position(invader.position().right(1))})
+			game.schedule(tiempo / 2, { flotaInvader.invaders().forEach({ invader => invader.position(invader.position().left(1))})})
 		})
-		game.onTick(tiempo * 4, "Bajar invaders", { juego.invaders().forEach({ invader => invader.position(invader.position().down(1))})})
+		game.onTick(tiempo * 4, "Bajar invaders", { flotaInvader.invaders().forEach({ invader => invader.position(invader.position().down(1))})})
 	}
 
-	// Dispara si hay invaders. Game Over si no
+	// Dispara si hay invaders. Gano si no
 	method dispararLasersInvaders(tiempo) {
 		game.onTick(tiempo, "Disparar invaders", { 
-			if(not juego.invaders().isEmpty()) {
-				juego.invaders().anyOne().disparar()
+			if(not flotaInvader.invaders().isEmpty()) {
+				flotaInvader.filaMasBaja().anyOne().disparar() //Disparan unicamente los unvaders que estan abajo de todo
 			}
 //			else {
-//				// Game Over
+//				// Gano
 //			}
 		})
 	}
 
 	method iniciar() {
 		game.addVisual(nave)
-		self.crearInvaders(6)
+		self.crearInvaders(6,4,0,18)
 		self.moverInvaders(1000)
 		self.dispararLasersInvaders(3000)
 		configurar.teclas()
@@ -66,7 +69,7 @@ object nivel3 {
 	}
 
 	method iniciarBerretinesInvaders(tiempo) {
-		game.onTick(tiempo, "Berretines", { juego.invaders().anyOne().iniciarBerretin()})
+		game.onTick(tiempo, "Berretines", { flotaInvader.invaders().anyOne().iniciarBerretin()})
 	}
 
 }
@@ -81,10 +84,14 @@ object configurar {
 
 }
 
-object juego {
+object flotaInvader {
 	const property invaders = []
 	
 	method agregarInvader(invader) { invaders.add(invader) }
 	
 	method quitarInvader(invader) { invaders.remove(invader) }
+	
+	method posicionYMasBaja() = invaders.map({ invader => invader.position().y()}).min()
+	
+	method filaMasBaja() = invaders.filter({ invader => invader.position().y() == self.posicionYMasBaja()})
 }
