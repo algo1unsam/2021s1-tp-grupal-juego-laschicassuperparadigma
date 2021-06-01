@@ -7,20 +7,27 @@ import lasers.*
 class Nivel {
 
 	method iniciar() {
-		//game.addVisual(nave) // Muestro el objeto en pantalla
+		game.addVisual(nave) // Muestro el objeto en pantalla
 		configurar.teclas()
 	}
 
 	method finalizarNivel() {
-		//game.schedule(1000, { game.clear()}) // Remuevo todos los visual
-		game.schedule(2000, { self.siguiente().iniciar()})  // Faltaria poner alguna presentacion del nivel
+		game.clear() // Remuevo todos los visual
+		game.schedule(3000, { self.siguiente().iniciar()})  // Faltaria poner alguna presentacion del nivel
 	}
 	
 	method siguiente()
 
 }
-object pantallaInicial {
+object pantallaInicial inherits Nivel{
 	//method image() = alguna imagen
+	override method iniciar() {
+		super()
+		configurar.enterParaJugar()
+	}
+	
+	override method siguiente() = nivel1
+	
 	
 }
 
@@ -29,7 +36,7 @@ object nivel1 inherits Nivel {
 
 	override method iniciar() {
 		super()
-		game.addVisual(nave) // Muestro el objeto en pantalla
+		//game.addVisual(nave) // Muestro el objeto en pantalla
 		flotaInvader.crearInvaders(1, 0, 11, 18)
 		flotaInvader.moverInvaders(1000)
 		flotaInvader.dispararLasersInvaders(3000, self)
@@ -88,6 +95,10 @@ object configurar {
 		keyboard.left().onPressDo({ nave.position(nave.position().left(1))})
 		keyboard.right().onPressDo({ nave.position(nave.position().right(1))})
 		keyboard.space().onPressDo({ nave.disparar()})
+	}
+	
+	method enterParaJugar() {
+		keyboard.enter().onPressDo({ pantallaInicial.finalizarNivel() })
 	}
 
 }
