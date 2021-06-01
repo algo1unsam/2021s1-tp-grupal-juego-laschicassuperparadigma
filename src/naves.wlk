@@ -1,5 +1,6 @@
 import wollok.game.*
 import lasers.*
+import niveles.*
 
 class Astronave {
 
@@ -58,14 +59,14 @@ class Nave inherits Astronave {
 
 
 
-class Sontaran inherits Invader {
+class Bicho1 inherits Invader {
 
 	// method image() = "naBe.png"
 	override method puntosQueDa() = 10
 
 }
 
-class VashtaNerada inherits Invader {
+class Bicho2 inherits Invader {
 
 	// method image() =  "Bicho1.png"
 	override method puntosQueDa() = 20
@@ -73,7 +74,7 @@ class VashtaNerada inherits Invader {
 }
 
 class Dalek inherits Invader {
-	var sonidoChoque = new Sound(file = "explosion.wav")
+	const sonidoChoque = new Sound(file = "explosion.wav")
 	
 	override method image() = "Bicho5.png"
 	
@@ -87,7 +88,16 @@ class Dalek inherits Invader {
 		destruido = true
 		game.removeVisual(self)
 		sonidoChoque.play()
+		//
+		juego.quitarInvader(self)
 		
+	}
+	
+	// Empieza a tirar a lo loco y despues de 1500 ms para
+	method iniciarBerretin() {
+		// cambiar imagen
+		game.onTick(200,"disparar ametralladora" + self.identity().toString(), { self.disparar() })
+		game.schedule(1500,{ game.removeTickEvent("disparar ametralladora" + self.identity().toString()) })
 	}
 }
 
@@ -97,7 +107,10 @@ class Invader inherits Astronave {
 
 	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
 	
-	
+	override method destruirse() {
+		super()
+		//juego.quitarInvader(self)
+	}
 //	method moverse(tiempo) {
 //		game.onTick(tiempo,"Moverse a la derecha" + self.identity().toString(), { position = position.right(1) })
 //		game.schedule(tiempo/2, { game.onTick(tiempo,"Moverse a la izquierda" + self.identity().toString(), { position = position.left(1) }) })

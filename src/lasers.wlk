@@ -37,7 +37,7 @@ class Laser {
 		game.removeVisual(self)
 		game.removeTickEvent("DISPARO NAVE" + self.identity().toString()) 	// Elimino onTick para este laser en particular
 	}
-	method estaFueraDeLaPantalla() = position.y() > game.height()
+	method estaFueraDeLaPantalla()
 
 }
 
@@ -50,6 +50,8 @@ class LaserNave inherits Laser {
 		super() // Si está afuera de la pantalla lo destruye
 		position = position.up(1)
 	}
+	
+	override method estaFueraDeLaPantalla() = position.y() > game.height()
 
 }
 
@@ -61,5 +63,7 @@ class LaserInvader inherits Laser {
 		super() 	// Si está afuera de la pantalla lo destruye
 		position = position.down(1)
 	}
+	
+	override method estaFueraDeLaPantalla() = position.y() < 0
 
 }
