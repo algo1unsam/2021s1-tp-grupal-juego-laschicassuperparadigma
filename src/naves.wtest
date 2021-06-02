@@ -5,20 +5,21 @@ import niveles.*
 
 describe "Nave" {
 
-	// const nave = new Nave(position = game.at(game.center().x(), 0))
+	
 	test "Setear posicion" {
 		nave.position(game.at(4, 0))
 		assert.equals(game.at(4, 0), nave.position())
 	}
 
-	test "Disparar" {
+	test "Disparar" {	// No le gusta que tenga sonido pero antes de eso daba bien
 		nave.disparar()
 		assert.equals(1, nave.lasersDisparados().size())
 	}
 
 }
 describe "Niveles"{
-
+	const dalek = new Dalek(position =game.at(10,-1))
+	
 //	test "Posicion nuevo invader"{
 //		assert.equals(game.at(2,20),nivel2.posicionNuevoInvader(1,6))
 //		assert.equals(game.at(7,20),nivel2.posicionNuevoInvader(2,6))
@@ -31,6 +32,10 @@ describe "Niveles"{
 	test "Fila mas baja" {
 		flotaInvader.crearInvaders(6,4,0,18)
 		assert.equals(16,flotaInvader.posicionYMasBaja())
+	}
+	
+	test "Un invader esta por abajo del 0 en la posicion y" {
+		assert.notThat(dalek.estaDentroDeLaPantalla())
 	}
 	
 }

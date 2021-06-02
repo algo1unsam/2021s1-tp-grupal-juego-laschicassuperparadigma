@@ -110,8 +110,10 @@ class Invader inherits Astronave {
 	
 	override method destruirse() {
 		super()
-		//juego.quitarInvader(self)
+		//flotaInvader.quitarInvader(self)
 	}
+	
+	method estaDentroDeLaPantalla() = position.y()>=0
 //	method moverse(tiempo) {
 //		game.onTick(tiempo,"Moverse a la derecha" + self.identity().toString(), { position = position.right(1) })
 //		game.schedule(tiempo/2, { game.onTick(tiempo,"Moverse a la izquierda" + self.identity().toString(), { position = position.left(1) }) })

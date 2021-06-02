@@ -13,7 +13,7 @@ class Nivel {
 
 	method finalizarNivel() {
 		game.clear() // Remuevo todos los visual
-		game.schedule(3000, { self.siguiente().iniciar()})  // Faltaria poner alguna presentacion del nivel
+		game.schedule(500, { self.siguiente().iniciar()})  // Faltaria poner alguna presentacion del nivel
 	}
 	
 	method siguiente()
@@ -31,14 +31,13 @@ object pantallaInicial inherits Nivel{
 	
 }
 
-// Invader en el medio que no hace nada
 object nivel1 inherits Nivel {
 
 	override method iniciar() {
 		super()
 		//game.addVisual(nave) // Muestro el objeto en pantalla
-		flotaInvader.crearInvaders(1, 0, 11, 18)
-		flotaInvader.moverInvaders(1000)
+		flotaInvader.crearInvaders(1, 0, game.center().y(), 18)
+		flotaInvader.moverInvaders(1000,self)
 		flotaInvader.dispararLasersInvaders(3000, self)
 	}
 	
@@ -51,7 +50,7 @@ object nivel2 inherits Nivel {
 	override method iniciar() {
 		super()
 		flotaInvader.crearInvaders(6, 4, 0, 18)
-		flotaInvader.moverInvaders(1000)
+		flotaInvader.moverInvaders(1000,self)
 		flotaInvader.dispararLasersInvaders(3000, self)
 	}
 	
@@ -64,7 +63,7 @@ object nivel3 inherits Nivel {
 	override method iniciar() {
 		super()
 		flotaInvader.crearInvaders(11, 2, 0, 18)
-		flotaInvader.moverInvaders(1000)
+		flotaInvader.moverInvaders(1000,self)
 		flotaInvader.dispararLasersInvaders(3000, self)
 		self.iniciarBerretinesInvaders(10000)
 	}
@@ -129,11 +128,18 @@ object flotaInvader {
 		self.invaders().forEach({ invader => game.addVisual(invader)})
 	}
 
-	method moverInvaders(tiempo) {
+	method moverInvaders(tiempo,nivel) {
+		
 		game.onTick(tiempo, "mover invaders", { self.invaders().forEach({ invader => invader.position(invader.position().right(1))})
 			game.schedule(tiempo / 2, { self.invaders().forEach({ invader => invader.position(invader.position().left(1))})})
 		})
-		game.onTick(tiempo * 4, "Bajar invaders", { self.invaders().forEach({ invader => invader.position(invader.position().down(1))})})
+		game.onTick(tiempo * 4, "Bajar invaders", { 
+			self.invaders().forEach({ invader => invader.position(invader.position().down(1))})	// Baja de posicion
+			if( invaders.any({ invader => not invader.estaDentroDeLaPantalla() }) ) { // Si al bajar quedo fuera de la pantalla lo destruye
+				self.ganoLaInvasion(nivel)
+			}
+		})
+		
 	}
 
 	// Dispara si hay invaders. Gano si no
@@ -144,6 +150,15 @@ object flotaInvader {
 				nivel.finalizarNivel() // Si gana pasa al siguiente nivel
 			}
 		})
+	}
+	
+	// Si un invader pasa, resta una vida y empieza de nuevo
+	method ganoLaInvasion(nivel) {
+		nave.destruirse()
+		invaders.forEach({ invader => invaders.remove(invader) })
+		game.clear() // Remuevo todos los visual
+		game.schedule(3000, { nivel.iniciar()})  // Faltaria poner alguna presentacion del nivel
+		
 	}
 
 }
