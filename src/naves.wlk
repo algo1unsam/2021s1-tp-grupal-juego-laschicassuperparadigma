@@ -15,10 +15,6 @@ class Astronave {
 		position = game.at(x, y)
 	}
 
-	method recibirDisparo() {
-		self.destruirse()
-	}
-
 	method destruirse() {
 		destruido = true
 		game.removeVisual(self)
@@ -35,42 +31,64 @@ class Astronave {
 		lasersDisparados.last().serDisparado() // Disparo el que acabo de crear
 	}
 
-//	method chocarCon(algo) {
-//		nave.destruirse()
-//		algo.destruirse()
-//	}
+
 }
 
-class Nave inherits Astronave {
-
+object nave inherits Astronave {
+	
 	var vidas = 3
 
 	method vidas() = vidas
+	
+	method restarVida() {
+		vidas -= 1
+	}
+	
+	method irAPosicionInicial() {
+		position = game.at(game.center().x(), 0)
+	}
 
 	override method image() = "Nave.png"
+	
+	override method destruirse() {
+		super()
+		self.restarVida()
+		// Aunque no se vea puede seguir disparando. Habria que ver si se soluciona cuando entra la otra vida
+	}
 
-//	override method chocarCon(algo) {
-//		vidas -= 1
-//		super(algo) // Ejecuta el metodo padfre
-//	}
+	method chocarCon(invader) {
+		self.destruirse()
+		invader.destruirse()
+		
+	}
+	
+	
 
 	override method retornarNuevoLaser() = new LaserNave(position = self.position())
 
 }
 
+class Invader inherits Astronave {
+	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
+	
+	override method destruirse() {
+		super()
+		flotaInvader.quitarInvader(self)
+	}
+	
+	method estaDentroDeLaPantalla() = position.y()>=0
 
+}
 
 class Bicho1 inherits Invader {
 
 	// method image() = "naBe.png"
-	override method puntosQueDa() = 10
 
 }
 
 class Bicho2 inherits Invader {
 
 	override method image() =  "Bicho1.png" 	////////////// Cambiar imagen
-	override method puntosQueDa() = 20
 
 }
 
@@ -78,19 +96,10 @@ class Dalek inherits Invader {
 	const sonidoChoque = new Sound(file = "explosion.wav")
 	
 	override method image() = "Bicho5.png"
-	
-	override method puntosQueDa() = 40
 
-	// Pongo esto provisoriamente para probar el sonido en esta nave
-	// Todas las naves pueden tener un sonido cuando se destruyen. Habria que agregar eso.
-	// Hacer esta parte es bastante clave para entender y juntar todos los temas que vimos.
-	// Lo dejo por si alguno quiere pensarlo
 	override method destruirse() {
-		destruido = true
-		game.removeVisual(self)
-		sonidoChoque.play()
-		//
-		flotaInvader.quitarInvader(self)
+		super()
+		sonidoChoque.play() // Pasarlo a la super clase despues de agregar el sonido a la carpeta
 		
 	}
 	
@@ -102,27 +111,8 @@ class Dalek inherits Invader {
 	}
 }
 
-class Invader inherits Astronave {
 
-	method puntosQueDa()
 
-	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
-	
-	override method destruirse() {
-		super()
-		//flotaInvader.quitarInvader(self)
-	}
-	
-	method estaDentroDeLaPantalla() = position.y()>=0
-//	method moverse(tiempo) {
-//		game.onTick(tiempo,"Moverse a la derecha" + self.identity().toString(), { position = position.right(1) })
-//		game.schedule(tiempo/2, { game.onTick(tiempo,"Moverse a la izquierda" + self.identity().toString(), { position = position.left(1) }) })
-//	}
-		
-//	method dejarDeMoverse() {
-//		game.removeTickEvent("Moverse a la derecha" + self.identity().toString())
-//		game.removeTickEvent("Moverse a la izquierda" + self.identity().toString())
-//	}
 
-}
-const nave = new Nave(position = game.at(game.center().x(), 0))
+
+//const nave = new Nave(position = game.at(game.center().x(), 0))

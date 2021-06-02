@@ -8,7 +8,9 @@ class Nivel {
 
 	method iniciar() {
 		game.addVisual(nave) // Muestro el objeto en pantalla
+		nave.irAPosicionInicial() // centro
 		configurar.teclas()
+		configurar.configurarColisiones()
 	}
 
 	method finalizarNivel() {
@@ -37,8 +39,8 @@ object nivel1 inherits Nivel {
 		super()
 		//game.addVisual(nave) // Muestro el objeto en pantalla
 		flotaInvader.crearInvaders(1, 0, game.center().y(), 18)
-		flotaInvader.moverInvaders(1000,self)
-		flotaInvader.dispararLasersInvaders(3000, self)
+		flotaInvader.moverInvaders(200,self)
+		//flotaInvader.dispararLasersInvaders(3000, self)
 	}
 	
 	override method siguiente() = nivel2
@@ -99,6 +101,10 @@ object configurar {
 	method enterParaJugar() {
 		keyboard.enter().onPressDo({ pantallaInicial.finalizarNivel() })
 	}
+	
+	method configurarColisiones() {
+		game.whenCollideDo(nave, { invader => nave.chocarCon(invader)})
+	}
 
 }
 
@@ -120,7 +126,7 @@ object flotaInvader {
 
 	method crearInvaders(n, separacion, xPrimerInvader, y) {
 		// Daleks. Los mas malos arriba de todo
-		(n - 1).times({ i => self.agregarInvader(new Dalek(position = game.at(xPrimerInvader + (i - 1) * separacion + (separacion / 2), y)))})
+		(n - 1).times({ i => self.agregarInvader(new Dalek(position = game.at(xPrimerInvader + (i - 1)*separacion + (separacion / 2), y)))})
 			// Los del medio. Cambiar el Dalek por el bicho2 ///////
 		n.times({ i => self.agregarInvader(new Dalek(position = game.at(xPrimerInvader + (i - 1) * separacion, y - 1)))})
 			// Bicho1. Los mas buenitos abajo de todo. Cambiar por Bicho1///////
