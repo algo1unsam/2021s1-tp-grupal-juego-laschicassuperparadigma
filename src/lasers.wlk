@@ -2,11 +2,8 @@ import wollok.game.*
 import naves.*
 
 class Laser {
-
-	const sonidoChoque = new Sound(file = "llaser.wav")
-	
 	var property position
-	var destruido = false
+	const sonidoChoque = new Sound(file = "llaser.wav")
 
 	method serDisparado() {
 		self.irAPosicionSiguiente() // En la nave es uno mas arriba, en los invaders uno mas abajo
@@ -36,10 +33,12 @@ class Laser {
 	}
 
 	method destruirse() {
-		destruido = true
 		game.removeVisual(self)
 		game.removeTickEvent("DISPARO NAVE" + self.identity().toString()) 	// Elimino onTick para este laser en particular
 	}
+	
+	method image() 
+	
 	method estaFueraDeLaPantalla()
 
 }
@@ -47,7 +46,7 @@ class Laser {
 class LaserNave inherits Laser {
 
 	
-	method image() = "Rayo.png"
+	override method image() = "Rayo.png"
 
 	override method irAPosicionSiguiente() {
 		super() // Si está afuera de la pantalla lo destruye
@@ -60,7 +59,7 @@ class LaserNave inherits Laser {
 
 class LaserInvader inherits Laser {
 	
-	method image() = "Rayo.png" // Cambiar imagen y hacer metodo image abstracto
+	override method image() = "Rayo.png" /////////////////// Cambiar imagen y hacer metodo image abstracto
 
 	override method irAPosicionSiguiente() {
 		super() 	// Si está afuera de la pantalla lo destruye

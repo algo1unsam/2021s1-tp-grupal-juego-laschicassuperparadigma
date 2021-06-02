@@ -2,141 +2,123 @@ import wollok.game.*
 import lasers.*
 import niveles.*
 
-
 class Astronave {
 
 	var property position = game.center()
-	var property destruido = false // De esto depende la imagen que muestra. Despues se podria cambiar y animarlo bien
-	var lasersDisparados = [] // Esto lo creo para que los lasers que crean el método disparar no mueran con el metodo. No se si hay alguna otra manera de hacerlo
-
+	var lasersDisparados = [] // Esto lo creo para que los lasers que crean el método disparar no mueran con el metodo.
+	
 	method lasersDisparados() = lasersDisparados
 
-	method posicion(x, y) {
-		position = game.at(x, y)
-	}
-
 	method destruirse() {
-		destruido = true
 		game.removeVisual(self)
-	//
 	}
 
-	method image() // Metodo abstracto, todas las naves tienen que tenerlo
 
-	method retornarNuevoLaser()
 
 	method disparar() {
-		// instancio un objeto LaserNave y lo agrego a la lista
-		lasersDisparados.add(self.retornarNuevoLaser())
+		lasersDisparados.add(self.retornarNuevoLaser()) // instancio un objeto LaserNave y lo agrego a la lista
 		lasersDisparados.last().serDisparado() // Disparo el que acabo de crear
 	}
-
+	
+	method image()
+	
+	method retornarNuevoLaser()
+	
 
 }
 
 object nave inherits Astronave {
-	
+
 	var cantVidas = 3
-	var vidas = [] // [new Vida(position = game.at(0,21)),new Vida(position = game.at(1,21)),new Vida(position = game.at(2,21))]
-	
+	var vidas = []
+
 	method restarVida() {
 		cantVidas -= 1
-		
-		if(cantVidas == 0){
-			game.stop()	// Ponerle un lindo game over /////////
+		if (cantVidas == 0) {
+			game.stop() // Ponerle un lindo game over /////////
 		}
-		
-		if(not vidas.isEmpty()){
+		if (not vidas.isEmpty()) {
 			game.removeVisual(vidas.last())
 			vidas.remove(vidas.last())
-			
 		}
-		
-		
 	}
-	
+
 	method crearVidas() {
-		(cantVidas-1).times({ i =>vidas.add(new Vida(position = game.at(i-1,20))) })
+		(cantVidas - 1).times({ i => vidas.add(new Vida(position = game.at(i - 1, 20)))})
 	}
-	
+
 	method mostrarVidas() {
-		vidas.forEach({ vida => game.addVisual(vida) })
+		vidas.forEach({ vida => game.addVisual(vida)})
 	}
-	
+
 	method irAPosicionInicial() {
 		position = game.at(game.center().x(), 0)
 	}
 
 	override method image() = "Nave.png"
-	
-	override method destruirse() {
-		//super()
+
+	override method destruirse() {	// No saca el visual porque entra la otra vida
 		self.restarVida()
-		// Aunque no se vea puede seguir disparando. Habria que ver si se soluciona cuando entra la otra vida
 	}
 
 	method chocarCon(invader) {
 		self.destruirse()
 		invader.destruirse()
-		
 	}
-	
-	
 
 	override method retornarNuevoLaser() = new LaserNave(position = self.position())
 
 }
 
 class Invader inherits Astronave {
+
+	const sonidoChoque = new Sound(file = "explosion.wav")
+
 	override method retornarNuevoLaser() = new LaserInvader(position = self.position())
-	
+
 	override method destruirse() {
 		super()
+		sonidoChoque.play() ////////// Pasarlo a la clase astronave despues de agregar sonido de perdida de vida en Nave cuando choca
 		flotaInvader.quitarInvader(self)
 	}
+
+	method estaDentroDeLaPantalla() = position.y() >= 0
 	
-	method estaDentroDeLaPantalla() = position.y()>=0
+	method iniciarPoder()
 
 }
 
 class Bicho1 inherits Invader {
 
-	// method image() = "naBe.png"
-
+	override method image() = "Bicho1.png" // //////////// Agregar imagen
+	
+	override method iniciarPoder() {}
 }
 
 class Bicho2 inherits Invader {
 
-	override method image() =  "Bicho1.png" 	////////////// Cambiar imagen
+	override method image() = "Bicho2.png" // //////////// Agregar imagen
+	
+	override method iniciarPoder() {}
 
 }
 
 class Dalek inherits Invader {
-	const sonidoChoque = new Sound(file = "explosion.wav")
-	
-	override method image() = "Bicho5.png"
 
-	override method destruirse() {
-		super()
-		sonidoChoque.play() // Pasarlo a la super clase despues de agregar el sonido a la carpeta
-		
-	}
-	
+	override method image() = "Bicho5.png" //////////////// Cambiarle el nombre al archivo
+
 	// Empieza a tirar a lo loco y despues de 1500 ms para
-	method iniciarBerretin() {
-		// cambiar imagen
-		game.onTick(200,"disparar ametralladora" + self.identity().toString(), { self.disparar() })
-		game.schedule(1500,{ game.removeTickEvent("disparar ametralladora" + self.identity().toString()) })
+	override method iniciarPoder() {
+		game.onTick(200, "disparar ametralladora" + self.identity().toString(), { self.disparar()})
+		game.schedule(1500, { game.removeTickEvent("disparar ametralladora" + self.identity().toString())})
 	}
+
 }
 
 class Vida {
+
 	var property position = game.center()
-	
+
 	method image() = "Nave.png"
 
 }
-
-
-
-//const nave = new Nave(position = game.at(game.center().x(), 0))
