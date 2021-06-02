@@ -3,6 +3,8 @@ import naves.*
 
 class Laser {
 
+	const sonidoChoque = new Sound(file = "llaser.wav")
+	
 	var property position
 	var destruido = false
 
@@ -11,6 +13,7 @@ class Laser {
 		self.avanzar()
 		game.addVisual(self) // Al ser disparado se muestra en pantalla
 		self.configurarColicion()
+		sonidoChoque.play()
 	}
 
 	method avanzar() {
