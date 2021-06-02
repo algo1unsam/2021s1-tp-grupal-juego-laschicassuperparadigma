@@ -36,12 +36,31 @@ class Astronave {
 
 object nave inherits Astronave {
 	
-	var vidas = 3
-
-	method vidas() = vidas
+	var cantVidas = 3
+	var vidas = [] // [new Vida(position = game.at(0,21)),new Vida(position = game.at(1,21)),new Vida(position = game.at(2,21))]
 	
 	method restarVida() {
-		vidas -= 1
+		cantVidas -= 1
+		
+		if(cantVidas == 0){
+			game.stop()	// Ponerle un lindo game over /////////
+		}
+		
+		if(not vidas.isEmpty()){
+			game.removeVisual(vidas.last())
+			vidas.remove(vidas.last())
+			
+		}
+		
+		
+	}
+	
+	method crearVidas() {
+		(cantVidas-1).times({ i =>vidas.add(new Vida(position = game.at(i-1,20))) })
+	}
+	
+	method mostrarVidas() {
+		vidas.forEach({ vida => game.addVisual(vida) })
 	}
 	
 	method irAPosicionInicial() {
@@ -51,7 +70,7 @@ object nave inherits Astronave {
 	override method image() = "Nave.png"
 	
 	override method destruirse() {
-		super()
+		//super()
 		self.restarVida()
 		// Aunque no se vea puede seguir disparando. Habria que ver si se soluciona cuando entra la otra vida
 	}
@@ -111,7 +130,12 @@ class Dalek inherits Invader {
 	}
 }
 
+class Vida {
+	var property position = game.center()
+	
+	method image() = "Nave.png"
 
+}
 
 
 

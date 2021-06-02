@@ -11,11 +11,12 @@ class Nivel {
 		nave.irAPosicionInicial() // centro
 		configurar.teclas()
 		configurar.configurarColisiones()
+		
 	}
 
 	method finalizarNivel() {
 		game.clear() // Remuevo todos los visual
-		game.schedule(500, { self.siguiente().iniciar()})  // Faltaria poner alguna presentacion del nivel
+		game.schedule(500, { self.siguiente().iniciar() })  // Faltaria poner alguna presentacion del nivel
 	}
 	
 	method siguiente()
@@ -37,10 +38,11 @@ object nivel1 inherits Nivel {
 
 	override method iniciar() {
 		super()
-		//game.addVisual(nave) // Muestro el objeto en pantalla
 		flotaInvader.crearInvaders(1, 0, game.center().y(), 18)
-		flotaInvader.moverInvaders(200,self)
-		//flotaInvader.dispararLasersInvaders(3000, self)
+		flotaInvader.moverInvaders(1000,self)
+		flotaInvader.dispararLasersInvaders(3000, self)
+		nave.crearVidas()
+		nave.mostrarVidas()
 	}
 	
 	override method siguiente() = nivel2
@@ -54,6 +56,7 @@ object nivel2 inherits Nivel {
 		flotaInvader.crearInvaders(6, 4, 0, 18)
 		flotaInvader.moverInvaders(1000,self)
 		flotaInvader.dispararLasersInvaders(3000, self)
+		nave.mostrarVidas()
 	}
 	
 	override method siguiente() = nivel3
@@ -68,6 +71,7 @@ object nivel3 inherits Nivel {
 		flotaInvader.moverInvaders(1000,self)
 		flotaInvader.dispararLasersInvaders(3000, self)
 		self.iniciarBerretinesInvaders(10000)
+		nave.mostrarVidas()
 	}
 
 	method iniciarBerretinesInvaders(tiempo) {
