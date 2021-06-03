@@ -35,7 +35,7 @@ object nave inherits Astronave {
 	method restarVida() {
 		cantVidas -= 1
 		if (cantVidas == 0) {
-			game.stop() // Ponerle un lindo game over /////////
+			fin.perder()
 		}
 		if (not vidas.isEmpty()) {
 			game.removeVisual(vidas.last())
@@ -92,14 +92,14 @@ class Bicho1 inherits Invader {
 
 	override method image() = "Bicho1.png" // //////////// Agregar imagen
 	
-	override method iniciarPoder() {}
+	override method iniciarPoder() {}	////////// Agregar algun poder
 }
 
 class Bicho2 inherits Invader {
 
 	override method image() = "Bicho2.png" // //////////// Agregar imagen
 	
-	override method iniciarPoder() {}
+	override method iniciarPoder() {}	////////// Agregar algun poder
 
 }
 
@@ -120,5 +120,7 @@ class Vida {
 	var property position = game.center()
 
 	method image() = "Nave.png"
+	
+	method destruirse(){}	// No hace nada cuando le da un laser. Polimorfismo
 
 }

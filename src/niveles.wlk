@@ -13,7 +13,7 @@ class Nivel {
 
 	method finalizarNivel() {
 		game.clear() // Remuevo todos los visual
-		game.schedule(500, { self.siguiente().iniciar()}) ////////// Faltaria poner alguna presentacion para cada nivel
+		game.schedule(500, { self.siguiente().iniciar()})
 	}
 
 	method siguiente()
@@ -79,11 +79,14 @@ object nivel3 inherits Nivel {
 object fin inherits Nivel {
 
 	// method ganar()
-	// method perder()
+	method perder() {
+		game.stop()
+	}
 	override method iniciar() {
 	}
 
 	override method siguiente() {
+		game.stop()
 	}
 
 }
@@ -91,9 +94,9 @@ object fin inherits Nivel {
 object configurar {
 
 	method teclas() {
-		keyboard.left().onPressDo({ nave.position(nave.position().left(1))})
-		keyboard.right().onPressDo({ nave.position(nave.position().right(1))})
-		keyboard.space().onPressDo({ nave.disparar()})
+		keyboard.left().onPressDo({ nave.position(nave.position().left(1)) })
+		keyboard.right().onPressDo({ nave.position(nave.position().right(1)) })
+		keyboard.space().onPressDo({ nave.disparar() })
 	}
 
 	method enterParaJugar() {

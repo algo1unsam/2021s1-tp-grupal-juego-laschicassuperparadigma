@@ -3,7 +3,7 @@ import naves.*
 
 class Laser {
 	var property position
-	const sonidoChoque = new Sound(file = "llaser.wav")
+	const sonidoChoque = new Sound(file = "llaser.wav")	//////////
 
 	method serDisparado() {
 		self.irAPosicionSiguiente() // En la nave es uno mas arriba, en los invaders uno mas abajo
