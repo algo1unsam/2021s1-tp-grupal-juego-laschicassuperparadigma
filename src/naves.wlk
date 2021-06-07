@@ -28,13 +28,16 @@ class Astronave {
 }
 
 object nave inherits Astronave {
-
+	
+	const perder = new Sound(file = "perder.wav")
 	var cantVidas = 3
 	var vidas = []
 
 	method restarVida() {
+		
 		cantVidas -= 1
 		if (cantVidas == 0) {
+			perder.play()
 			fin.perder()
 		}
 		if (not vidas.isEmpty()) {
@@ -90,9 +93,14 @@ class Invader inherits Astronave {
 
 class Bicho1 inherits Invader {
 
-	override method image() = "Bicho1.png" // //////////// Agregar imagen
+	override method image() = "Bicho10.png" // //////////// Agregar imagen
 	
 	override method iniciarPoder() {}	////////// Agregar algun poder
+	
+	override method disparar() {
+		lasersDisparados.add(self.retornarNuevoLaser()) // instancio un objeto LaserNave y lo agrego a la lista
+		lasersDisparados.last().serDisparado() // Disparo el que acabo de crear
+	}
 }
 
 class Bicho2 inherits Invader {

@@ -21,19 +21,22 @@ class Nivel {
 }
 
 object pantallaInicial inherits Nivel {
+		//////////
 
-	// method image() = alguna imagen
 	override method iniciar() {
 		super()
 		configurar.enterParaJugar()
 	}
+	
+	method image() = "space.jpg"
+	
 
 	override method siguiente() = nivel1
 
 }
 
 object nivel1 inherits Nivel {
-
+	
 	override method iniciar() {
 		super()
 		flotaInvader.crearInvaders(1, 0, game.center().y(), 18)
@@ -92,7 +95,6 @@ object fin inherits Nivel {
 }
 
 object configurar {
-
 	method teclas() {
 		keyboard.left().onPressDo({ nave.position(nave.position().left(1)) })
 		keyboard.right().onPressDo({ nave.position(nave.position().right(1)) })
