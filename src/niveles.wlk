@@ -102,7 +102,8 @@ object nivel3 inherits Nivel {
 object fin {
 
 	var property image // / Cambia segun gane o pierda
-
+	//const sonidoPerder = new Sound(file = "perder.wav")
+	
 	method ganar() {
 		image = "ganaste.png"
 		self.final()
@@ -110,11 +111,12 @@ object fin {
 
 	method perder() {
 		image = "gameOver.png"
+		//sonidoPerder.play()
 		self.final()
 	}
 
 	method final() {
-		image = "ganaste.png"
+		game.clear()
 		game.addVisualIn(self, game.at(0, 0))
 		configurar.enterParaFin()	// Al presionar enterfinaliza
 	}

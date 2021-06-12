@@ -28,16 +28,17 @@ class Astronave {
 }
 
 object nave inherits Astronave {
-	
-	const perder = new Sound(file = "perder.wav")
+	const sonidosPerderVidas = [new Sound(file = "perder.wav")]
 	var cantVidas = 3
 	var vidas = []
 
 	method restarVida() {
 		
+		sonidosPerderVidas.first().play()
+		sonidosPerderVidas.remove(sonidosPerderVidas.first())
+		sonidosPerderVidas.add(new Sound(file = "perder.wav")) // Agrego un sonido para poder reproducirlo la segunda vez
 		cantVidas -= 1
 		if (cantVidas == 0) {
-			perder.play()
 			fin.perder()
 		}
 		if (not vidas.isEmpty()) {
