@@ -2,9 +2,36 @@ import wollok.game.*
 import naves.*
 import lasers.*
 
+object pantallaInicial {
+	var property image = "spaceInvaders.png"
+	
+	method iniciar() {
+		game.addVisualIn(self, game.at(0, 0)) // Muestra la imagen en la posicion 0,0
+		game.schedule(10000,{ image = "instrucciones.png"	// Cambia la imagen y pasa al nivel cuando se aprieta enter
+		configurar.enterParaJugar()
+		})
+		
+	}
+
+	method finalizar() {
+		game.clear() // Remuevo todos los visual
+		self.siguiente().iniciar()
+	}
+
+	method siguiente() = nivel1
+
+}
+
 class Nivel {
 
 	method iniciar() {
+		game.addVisualIn(self, game.at(0, 0)) // Muestra la imagen en la posicion 0,0
+		game.schedule(1000, { game.clear()
+			self.iniciarNivel()
+		})
+	}
+
+	method iniciarNivel() {
 		game.addVisual(nave) // Muestro el objeto en pantalla
 		nave.irAPosicionInicial() // centro
 		configurar.teclas()
@@ -18,26 +45,13 @@ class Nivel {
 
 	method siguiente()
 
-}
-
-object pantallaInicial inherits Nivel {
-		//////////
-
-	override method iniciar() {
-		super()
-		configurar.enterParaJugar()
-	}
-	
-	method image() = "space.jpg"
-	
-
-	override method siguiente() = nivel1
+	method image()
 
 }
 
 object nivel1 inherits Nivel {
-	
-	override method iniciar() {
+
+	override method iniciarNivel() {
 		super()
 		flotaInvader.crearInvaders(1, 0, game.center().y(), 18)
 		flotaInvader.moverInvaders(1000, self)
@@ -48,11 +62,13 @@ object nivel1 inherits Nivel {
 
 	override method siguiente() = nivel2
 
+	override method image() = "nivel1.png"
+
 }
 
 object nivel2 inherits Nivel {
 
-	override method iniciar() {
+	override method iniciarNivel() {
 		super()
 		flotaInvader.crearInvaders(6, 4, 0, 18)
 		flotaInvader.moverInvaders(1000, self)
@@ -62,11 +78,13 @@ object nivel2 inherits Nivel {
 
 	override method siguiente() = nivel3
 
+	override method image() = "nivel2.png"
+
 }
 
 object nivel3 inherits Nivel {
 
-	override method iniciar() {
+	override method iniciarNivel() {
 		super()
 		flotaInvader.crearInvaders(11, 2, 0, 18)
 		flotaInvader.moverInvaders(1000, self)
@@ -77,32 +95,46 @@ object nivel3 inherits Nivel {
 
 	override method siguiente() = fin
 
+	override method image() = "nivel3.png"
+
 }
 
-object fin inherits Nivel {
+object fin {
 
-	// method ganar()
+	var property image // / Cambia segun gane o pierda
+
+	method ganar() {
+		image = "ganaste.png"
+		self.final()
+	}
+
 	method perder() {
-		game.stop()
-	}
-	override method iniciar() {
+		image = "gameOver.png"
+		self.final()
 	}
 
-	override method siguiente() {
-		game.stop()
+	method final() {
+		image = "ganaste.png"
+		game.addVisualIn(self, game.at(0, 0))
+		configurar.enterParaFin()	// Al presionar enterfinaliza
 	}
 
 }
 
 object configurar {
+
 	method teclas() {
-		keyboard.left().onPressDo({ nave.position(nave.position().left(1)) })
-		keyboard.right().onPressDo({ nave.position(nave.position().right(1)) })
-		keyboard.space().onPressDo({ nave.disparar() })
+		keyboard.left().onPressDo({ nave.position(nave.position().left(1))})
+		keyboard.right().onPressDo({ nave.position(nave.position().right(1))})
+		keyboard.space().onPressDo({ nave.disparar()})
 	}
 
 	method enterParaJugar() {
-		keyboard.enter().onPressDo({ pantallaInicial.finalizarNivel()})
+		keyboard.enter().onPressDo({ pantallaInicial.finalizar()})
+	}
+
+	method enterParaFin() {
+		keyboard.enter().onPressDo({ game.stop()})
 	}
 
 	method configurarColisiones() {

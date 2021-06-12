@@ -96,11 +96,6 @@ class Bicho1 inherits Invader {
 	override method image() = "Bicho10.png" // //////////// Agregar imagen
 	
 	override method iniciarPoder() {}	////////// Agregar algun poder
-	
-	override method disparar() {
-		lasersDisparados.add(self.retornarNuevoLaser()) // instancio un objeto LaserNave y lo agrego a la lista
-		lasersDisparados.last().serDisparado() // Disparo el que acabo de crear
-	}
 }
 
 class Bicho2 inherits Invader {
