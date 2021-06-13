@@ -29,3 +29,8 @@ Utiliza la barra espaceadora para disparar
 <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797263-94defd80-cbf5-11eb-9317-1830171691e6.png) TANQUES: Tienen 3 de vida y disparan igual a los Comunes. Puntos = 500
 
 # NIVELES
+
+NIVEL1 = dificultad: Facil.
+         tipo de invarder: Comunes
+<img>![nivel1](https://user-images.githubusercontent.com/80365596/121797508-ffdd0400-cbf6-11eb-9a39-89cda5cfc95a.png) <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797513-05d2e500-cbf7-11eb-9984-89661da2956a.png)
+
