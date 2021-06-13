@@ -32,11 +32,11 @@ Utiliza la barra espaceadora para disparar.
 
 # NIVELES
 
-NIVEL1 = dificultad: Facil, tipo de invarder: Comunes.   <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797513-05d2e500-cbf7-11eb-9984-89661da2956a.png)
+NIVEL1 = dificultad: Facil, tipo de invarder: Comunes.    <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797513-05d2e500-cbf7-11eb-9984-89661da2956a.png)
 
 <img>![nivel1](https://user-images.githubusercontent.com/80365596/121797508-ffdd0400-cbf6-11eb-9a39-89cda5cfc95a.png)
 
-NIVEL2 = dificultad : Intermedia , tipo de invader: comunes y veloces <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797551-4c284400-cbf7-11eb-86d3-47622df1f51f.png) <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797549-4894bd00-cbf7-11eb-8b7c-9b7c677c8b70.png)
+NIVEL2 = dificultad : Intermedia , tipo de invader: comunes y veloces.    <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797551-4c284400-cbf7-11eb-86d3-47622df1f51f.png) <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797549-4894bd00-cbf7-11eb-8b7c-9b7c677c8b70.png)
 
 <img>![nivel2](https://user-images.githubusercontent.com/80365596/121797561-58ac9c80-cbf7-11eb-8e27-cae61153f95b.png)
 
