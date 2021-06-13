@@ -20,7 +20,7 @@ Para ello equipamos en nuestra nave un lansa misiles muy eficas <img>![Rayo](htt
 
 La nave se mueve para izquierda o derecha con las flechas del teclado ← o → .
 
-Utiliza la barra espaceadora para disparar
+Utiliza la barra espaceadora para disparar.
  
 # ENEMIGOS
 
