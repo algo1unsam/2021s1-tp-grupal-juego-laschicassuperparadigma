@@ -32,7 +32,7 @@ Utiliza la barra espaceadora para disparar.
 
 # NIVELES
 
-NIVEL1 = dificultad: Facil, tipo de invarder: Comunes <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797513-05d2e500-cbf7-11eb-9984-89661da2956a.png)
+NIVEL1 = dificultad: Facil, tipo de invarder: Comunes.  <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797513-05d2e500-cbf7-11eb-9984-89661da2956a.png)
 
 <img>![nivel1](https://user-images.githubusercontent.com/80365596/121797508-ffdd0400-cbf6-11eb-9a39-89cda5cfc95a.png)
 
