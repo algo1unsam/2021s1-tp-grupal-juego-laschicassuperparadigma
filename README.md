@@ -13,3 +13,7 @@ La nave se mueve para izquierda o derecha con las flechas del teclado ← o → 
 
 Utiliza la barra espaceadora para disparar.
  
+ 
+ 
+ 
+ <img>  Bicho5.png
