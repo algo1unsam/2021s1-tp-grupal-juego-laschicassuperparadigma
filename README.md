@@ -1,7 +1,23 @@
+
+
+
+
+<img>
+
+
+
+
+
+
+
+
+
+
 # SPACE INVADER
 
 Unos extraterrestres misteriosos descienden dispuestos a destruir la Tierra y todo lo que tenga en frente. 
 Desde la parte inferior de la pantalla, el jugador, debe disparar con precisión para evitar que los invasores alcancen su objetivo. 
+ 
 
 # OBJETIVO
 
@@ -9,9 +25,12 @@ Nuestra nave debe eliminar a todos los invaders que tengamos en frente, acertand
 
 # CONTROLES
 
+<img>![Nave](https://user-images.githubusercontent.com/80365596/121797338-f606d100-cbf5-11eb-9482-e3519d260767.png)
+
+
 La nave se mueve para izquierda o derecha con las flechas del teclado ← o → .
 
-Utiliza la barra espaceadora para disparar.
+Utiliza la barra espaceadora para disparar
  
 # ENEMIGOS
 
