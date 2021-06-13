@@ -16,4 +16,5 @@ Utiliza la barra espaceadora para disparar.
  
  
  
- <img>Bicho5.png
+ <img>![nivel1](https://user-images.githubusercontent.com/80365596/121797241-65c88c00-cbf5-11eb-8622-b264da25a9bb.png)
+
