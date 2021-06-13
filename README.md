@@ -2,8 +2,8 @@
 
 # SPACE INVADER
 
-Unos extraterrestres misteriosos descienden desde el espacio dispuestos a destruir la Tierra y todo lo que tenga en frente. 
-Desde la parte inferior de la pantalla, el jugador, debe disparar con precisión para evitar que los invasores alcancen su objetivo. 
+Unos extraterrestres misteriosos descienden desde el espacio dispuestos a destruir la Tierra y todo lo que tengan en frente. 
+Desde la parte inferior de la pantalla, el jugador, debe disparar con precisión a los invaders, para evitar que los invasores alcancen su objetivo. 
 
 <img>![spaceInvaders](https://user-images.githubusercontent.com/80365596/121797471-affe3d00-cbf6-11eb-8198-fa8026ce0b1f.png)
 
