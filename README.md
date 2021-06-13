@@ -40,7 +40,7 @@ NIVEL2 = dificultad : Intermedia , tipo de invader: comunes y veloces.    <img>!
 
 <img>![nivel2](https://user-images.githubusercontent.com/80365596/121797561-58ac9c80-cbf7-11eb-8e27-cae61153f95b.png)
 
-NIVEL3= dificultad: Muerte asegurada , tipo de invader: comunes, veloces y tanques <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797586-7b3eb580-cbf7-11eb-962e-77f831e449a7.png)<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797589-7e39a600-cbf7-11eb-956d-912a4cd7ec81.png)<img>![Bicho10](https://user-images.githubusercontent.com/80365596/121797591-8265c380-cbf7-11eb-8bee-5d073466453b.png)
+NIVEL3= dificultad: Muerte asegurada , tipo de invader: comunes, veloces y tanques.     <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797586-7b3eb580-cbf7-11eb-962e-77f831e449a7.png)<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797589-7e39a600-cbf7-11eb-956d-912a4cd7ec81.png)<img>![Bicho10](https://user-images.githubusercontent.com/80365596/121797591-8265c380-cbf7-11eb-8bee-5d073466453b.png)
 <img>![nivel3](https://user-images.githubusercontent.com/80365596/121797593-8560b400-cbf7-11eb-98b9-306e4ff861a1.png)
 
 
