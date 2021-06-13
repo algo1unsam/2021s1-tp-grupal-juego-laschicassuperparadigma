@@ -10,7 +10,7 @@ Desde la parte inferior de la pantalla, el jugador, debe disparar con precisión
  # OBJETIVO
 
 Nuestra nave debe eliminar a todos los invaders que tengamos en frente, acertando los disparos y esquivando los misiles de los marcianitos. 
-Para ello equipamos en nuestra nave un lanza misiles muy eficas <img>![Rayo](https://user-images.githubusercontent.com/80365596/121797614-b345f880-cbf7-11eb-898b-0ec6d395281d.png)
+Para ello equipamos en nuestra nave un lanza misiles muy eficaz <img>![Rayo](https://user-images.githubusercontent.com/80365596/121797614-b345f880-cbf7-11eb-898b-0ec6d395281d.png)
 
 
 # CONTROLES
