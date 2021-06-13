@@ -16,4 +16,4 @@ Utiliza la barra espaceadora para disparar.
  
  
  
- <img>  Bicho5.png
+ <img>Bicho5.png
