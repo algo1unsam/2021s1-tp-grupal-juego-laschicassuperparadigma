@@ -1,30 +1,13 @@
-
-
-
-
-
-
-
-
-
 <img>![pp](https://user-images.githubusercontent.com/80365596/121797440-91984180-cbf6-11eb-87f5-325c290a2546.jpg)
-
-
-
-
-
-
-
-
-
 
 # SPACE INVADER
 
 Unos extraterrestres misteriosos descienden dispuestos a destruir la Tierra y todo lo que tenga en frente. 
 Desde la parte inferior de la pantalla, el jugador, debe disparar con precisión para evitar que los invasores alcancen su objetivo. 
- 
 
-# OBJETIVO
+<img>![spaceInvaders](https://user-images.githubusercontent.com/80365596/121797471-affe3d00-cbf6-11eb-8198-fa8026ce0b1f.png)
+
+ # OBJETIVO
 
 Nuestra nave debe eliminar a todos los invaders que tengamos en frente, acertando los disparos y esquivando los misiles de los marcianitos.
 
@@ -43,6 +26,6 @@ Utiliza la barra espaceadora para disparar
 
 <img>![Bicho10](https://user-images.githubusercontent.com/80365596/121797265-96a8c100-cbf5-11eb-8ff2-030649c07cc1.png) VELOCES: Tienen 1 de vida y disparan más rapido que los Comunes. Puntos = 300.
 
-
 <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797263-94defd80-cbf5-11eb-9317-1830171691e6.png) TANQUES: Tienen 3 de vida y disparan igual a los Comunes. Puntos = 500
 
+# NIVELES
