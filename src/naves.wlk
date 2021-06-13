@@ -71,6 +71,19 @@ object nave inherits Astronave {
 	}
 
 	override method retornarNuevoLaser() = new LaserNave(position = self.position())
+	
+	method moverseDerecha() {
+		if( not self.estaEnElBorde()) {
+			position = position.right(1)
+		}	
+	}
+	
+	method moverseIzquierda() {
+		if( not self.estaEnElBorde()) {
+			position = position.left(1)
+		}	
+	}
+	method estaEnElBorde() = position.x() == game.width() - 1 or position.x() == 0
 
 }
 

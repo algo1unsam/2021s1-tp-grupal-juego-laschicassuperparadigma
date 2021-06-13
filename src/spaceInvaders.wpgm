@@ -8,7 +8,7 @@ program SpaceInvaders {
 	game.height(22) //	Alto
 	game.width(22) 	//Ancho
 	game.cellSize(32) // Cambio el tamaño de las celdas
-	game.boardGround("nebulosa.png")
+	game.boardGround("nebulosa.jpg")
 	inicio.iniciar()
 	game.start()
 }
