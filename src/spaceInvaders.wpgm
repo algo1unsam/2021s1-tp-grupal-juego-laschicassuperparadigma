@@ -9,6 +9,6 @@ program SpaceInvaders {
 	game.width(22) 	//Ancho
 	game.cellSize(32) // Cambio el tamaño de las celdas
 	game.boardGround("nebulosa.png")
-	pantallaInicial.iniciar()
+	inicio.iniciar()
 	game.start()
 }

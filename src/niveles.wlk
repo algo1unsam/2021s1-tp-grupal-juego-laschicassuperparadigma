@@ -2,15 +2,31 @@ import wollok.game.*
 import naves.*
 import lasers.*
 
-object pantallaInicial {
+// Instancio un objeto para la musica de fondo
+const sonidoMusica = new Sound(file = "aroundTheWorld.mp3")
+
+// Esto se ejecuta antes del game.start() entonces, al no haber arrancado
+// el juego, la musica no se puede empezar a reproducir.
+// Intente poner el sonidoMusica.play() dentro de un schedule pero no funciono
+object inicio {	
 	var property image = "spaceInvaders.png"
-	
 	method iniciar() {
 		game.addVisualIn(self, game.at(0, 0)) // Muestra la imagen en la posicion 0,0
-		game.schedule(10000,{ image = "instrucciones.png"	// Cambia la imagen y pasa al nivel cuando se aprieta enter
-		configurar.enterParaJugar()
+		game.schedule(500, {  pantallaInicial.iniciar() })
+	}
+	
+}
+object pantallaInicial {
+
+	var property image = "spaceInvaders.png"
+
+	method iniciar() {
+		game.addVisualIn(self, game.at(0, 0)) // Muestra la imagen en la posicion 0,0
+		sonidoMusica.play() // Inicia la musica de fondo
+		configurar.musicaOnOff() // Pausa la musica apretando la "M"
+		game.schedule(10000, { image = "instrucciones.png" // Cambia la imagen y pasa al nivel cuando se aprieta enter
+			configurar.enterParaJugar()
 		})
-		
 	}
 
 	method finalizar() {
@@ -35,6 +51,7 @@ class Nivel {
 		game.addVisual(nave) // Muestro el objeto en pantalla
 		nave.irAPosicionInicial() // centro
 		configurar.teclas()
+		configurar.musicaOnOff()
 		configurar.configurarColisiones()
 	}
 
@@ -102,8 +119,8 @@ object nivel3 inherits Nivel {
 object fin {
 
 	var property image // / Cambia segun gane o pierda
-	//const sonidoPerder = new Sound(file = "perder.wav")
-	
+	// const sonidoPerder = new Sound(file = "perder.wav")
+
 	method ganar() {
 		image = "ganaste.png"
 		self.final()
@@ -111,14 +128,14 @@ object fin {
 
 	method perder() {
 		image = "gameOver.png"
-		//sonidoPerder.play()
+			// sonidoPerder.play()
 		self.final()
 	}
 
 	method final() {
 		game.clear()
 		game.addVisualIn(self, game.at(0, 0))
-		configurar.enterParaFin()	// Al presionar enterfinaliza
+		configurar.enterParaFin() // Al presionar enterfinaliza
 	}
 
 }
@@ -137,6 +154,16 @@ object configurar {
 
 	method enterParaFin() {
 		keyboard.enter().onPressDo({ game.stop()})
+	}
+
+	method musicaOnOff() {
+		keyboard.m().onPressDo({ if (sonidoMusica.paused()) {
+				sonidoMusica.resume()
+			}
+			else {
+				sonidoMusica.pause()
+			}
+		})
 	}
 
 	method configurarColisiones() {

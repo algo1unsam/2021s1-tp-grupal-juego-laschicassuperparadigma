@@ -82,7 +82,7 @@ class Invader inherits Astronave {
 
 	override method destruirse() {
 		super()
-		sonidoChoque.play() ////////// Pasarlo a la clase astronave despues de agregar sonido de perdida de vida en Nave cuando choca
+		sonidoChoque.play() 
 		flotaInvader.quitarInvader(self)
 	}
 
@@ -94,14 +94,13 @@ class Invader inherits Astronave {
 
 class Bicho1 inherits Invader {
 
-	override method image() = "Bicho10.png" // //////////// Agregar imagen
-	
+	override method image() = "Bicho10.png" 	
 	override method iniciarPoder() {}	////////// Agregar algun poder
 }
 
 class Bicho2 inherits Invader {
 
-	override method image() = "Bicho2.png" // //////////// Agregar imagen
+	override method image() = "Bicho2.png" 
 	
 	override method iniciarPoder() {}	////////// Agregar algun poder
 
@@ -109,7 +108,7 @@ class Bicho2 inherits Invader {
 
 class Dalek inherits Invader {
 
-	override method image() = "Bicho5.png" //////////////// Cambiarle el nombre al archivo
+	override method image() = "Bicho5.png" //////////////// Cambiarle el nombre a los archivos
 
 	// Empieza a tirar a lo loco y despues de 1500 ms para
 	override method iniciarPoder() {
@@ -125,6 +124,6 @@ class Vida {
 
 	method image() = "Nave.png"
 	
-	method destruirse(){}	// No hace nada cuando le da un laser. Polimorfismo
+	method destruirse(){}	// No hace nada cuando le da un laser. Polimorfismo =P
 
 }
