@@ -127,11 +127,17 @@ class Bicho2 inherits Invader {
 }
 
 class Dalek inherits Invader {
-
+	var creoInvader = false
 	override method image() = "Bicho5.png" 
 
 	override method iniciarPoder() {
-		flotaInvader.agregarInvader(new Dalek(position = self.position().right(1)))
+		if(not creoInvader) {
+			const nuevoInvader = new Bicho2(position = self.position().right(1))
+			flotaInvader.agregarInvader(nuevoInvader)
+			game.addVisual(nuevoInvader)
+			creoInvader = true // Para que no clone de nuevo y mate al que creo
+		}
+		
 	}
 	
 }

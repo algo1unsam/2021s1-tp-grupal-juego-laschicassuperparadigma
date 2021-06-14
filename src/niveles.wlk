@@ -25,7 +25,7 @@ object pantallaInicial {
 		game.addVisualIn(self, game.at(0, 0)) // Muestra la imagen en la posicion 0,0
 		sonidoMusica.play() // Inicia la musica de fondo
 		configurar.musicaOnOff() // Pausa la musica apretando la "M"
-		game.schedule(10000, { image = "instrucciones.png" // Cambia la imagen y pasa al nivel cuando se aprieta enter
+		game.schedule(5000, { image = "instrucciones.png" // Cambia la imagen y pasa al nivel cuando se aprieta enter
 			configurar.enterParaJugar()
 		})
 	}
@@ -88,9 +88,10 @@ object nivel2 inherits Nivel {
 
 	override method iniciarNivel() {
 		super()
-		flotaInvader.crearInvaders(6, 4, 0, 18)
+		flotaInvader.crearInvaders(4, 7, 0, 18)
 		flotaInvader.moverInvaders(1000, self)
 		flotaInvader.dispararLasersInvaders(3000, self)
+		flotaInvader.iniciarPoderes(10000)
 		nave.mostrarVidas()
 	}
 
@@ -104,9 +105,9 @@ object nivel3 inherits Nivel {
 
 	override method iniciarNivel() {
 		super()
-		flotaInvader.crearInvaders(11, 2, 0, 18)
+		flotaInvader.crearInvaders(6, 4, 0, 18)
 		flotaInvader.moverInvaders(1000, self)
-		flotaInvader.dispararLasersInvaders(3000, self)
+		flotaInvader.dispararLasersInvaders(2000, self)
 		flotaInvader.iniciarPoderes(10000)
 		nave.mostrarVidas()
 	}
