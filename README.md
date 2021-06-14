@@ -18,10 +18,12 @@ Para ello equipamos en nuestra nave un lanza misiles muy eficaz <img>![Rayo](htt
 <img>![Nave](https://user-images.githubusercontent.com/80365596/121797338-f606d100-cbf5-11eb-9482-e3519d260767.png)
 
 
-La nave se mueve para izquierda o derecha con las flechas del teclado ← o → .<img>![fechas](https://user-images.githubusercontent.com/80365596/121926802-b7b40380-cd14-11eb-8229-7bcdc0418d93.png)
+La nave se mueve para izquierda o derecha con las flechas del teclado ← o → .
+<img>![fechas](https://user-images.githubusercontent.com/80365596/121926802-b7b40380-cd14-11eb-8229-7bcdc0418d93.png)
 
 
-Utiliza la barra espaceadora para disparar.<img>![barra espaciadora](https://user-images.githubusercontent.com/80365596/121926843-c1d60200-cd14-11eb-9bce-87c4df55d8e0.png)
+Utiliza la barra espaceadora para disparar.
+<img>![barra espaciadora](https://user-images.githubusercontent.com/80365596/121926843-c1d60200-cd14-11eb-9bce-87c4df55d8e0.png)
 
  
 # ENEMIGOS
