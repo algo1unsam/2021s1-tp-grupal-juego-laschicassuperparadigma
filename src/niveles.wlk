@@ -122,7 +122,7 @@ object fin {
 	var property image // / Cambia segun gane o pierda
 	// const sonidoPerder = new Sound(file = "perder.wav")
 
-	method ganar() {
+	method iniciar() {	// Ganar
 		image = "ganaste.png"
 		self.final()
 	}

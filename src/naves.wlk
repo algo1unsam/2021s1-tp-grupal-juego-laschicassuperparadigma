@@ -1,6 +1,7 @@
 import wollok.game.*
 import lasers.*
 import niveles.*
+import flotaInvader.*
 
 class Astronave {
 
