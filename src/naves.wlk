@@ -74,17 +74,19 @@ object nave inherits Astronave {
 	override method retornarNuevoLaser() = new LaserNave(position = self.position())
 	
 	method moverseDerecha() {
-		if( not self.estaEnElBorde()) {
+		if( not self.estaEnElBordeDerecho()) {
 			position = position.right(1)
 		}	
 	}
 	
 	method moverseIzquierda() {
-		if( not self.estaEnElBorde()) {
+		if( not self.estaEnElBordeIzquierdo()) {
 			position = position.left(1)
 		}	
 	}
-	method estaEnElBorde() = position.x() == game.width() - 1 or position.x() == 0
+	method estaEnElBordeDerecho() = position.x() == game.width() - 1 
+	
+	method estaEnElBordeIzquierdo() = position.x() == 0
 
 }
 
@@ -109,21 +111,13 @@ class Invader inherits Astronave {
 class Bicho1 inherits Invader {
 
 	override method image() = "Bicho10.png" 	
-	override method iniciarPoder() {}	////////// Agregar algun poder
+	override method iniciarPoder() {}	// No tienen poder
 }
 
 class Bicho2 inherits Invader {
 
 	override method image() = "Bicho2.png" 
 	
-	override method iniciarPoder() {}	////////// Agregar algun poder
-
-}
-
-class Dalek inherits Invader {
-
-	override method image() = "Bicho5.png" //////////////// Cambiarle el nombre a los archivos
-
 	// Empieza a tirar a lo loco y despues de 1500 ms para
 	override method iniciarPoder() {
 		game.onTick(200, "disparar ametralladora" + self.identity().toString(), { self.disparar()})
@@ -131,6 +125,18 @@ class Dalek inherits Invader {
 	}
 
 }
+
+class Dalek inherits Invader {
+
+	override method image() = "Bicho5.png" 
+
+	override method iniciarPoder() {
+		flotaInvader.agregarInvader(new Dalek(position = self.position().right(1)))
+	}
+	
+}
+
+
 
 class Vida {
 
