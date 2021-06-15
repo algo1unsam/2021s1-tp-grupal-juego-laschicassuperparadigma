@@ -50,7 +50,7 @@ Podemos parar la musica con la letra M.
 
 # NIVELES
 
-NIVEL1 = dificultad: Fácil, tipo de invarder: Davros.     <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797263-94defd80-cbf5-11eb-9317-1830171691e6.png)
+NIVEL1 = dificultad: Fácil, tipo de invarder: Los Ood.     <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797263-94defd80-cbf5-11eb-9317-1830171691e6.png)
 
 <img>![nivel1](https://user-images.githubusercontent.com/80365596/121797508-ffdd0400-cbf6-11eb-9a39-89cda5cfc95a.png)
 
