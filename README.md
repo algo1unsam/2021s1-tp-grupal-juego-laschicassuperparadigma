@@ -30,7 +30,8 @@ Utiliza la barra espaceadora para disparar.
 
 Podemos parar la musica con la letra M.
 
-<img>!![MM](https://user-images.githubusercontent.com/78182038/122002014-96d8c600-cd87-11eb-905b-30bdeaf90df9.jpg)
+<img>![MM](https://user-images.githubusercontent.com/78182038/122002236-ddc6bb80-cd87-11eb-9b62-74009b2975ca.png)
+
 
  
 # ENEMIGOS
