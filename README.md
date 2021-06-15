@@ -22,12 +22,13 @@ La nave se mueve para izquierda o derecha con las flechas del teclado ← o → 
 
 <img>![fechas](https://user-images.githubusercontent.com/80365596/121926802-b7b40380-cd14-11eb-8229-7bcdc0418d93.png)
 
-Podemos parar la musica con la letra M 
-
 
 Utiliza la barra espaceadora para disparar.
 
 <img>![barra espaciadora](https://user-images.githubusercontent.com/80365596/121926843-c1d60200-cd14-11eb-9bce-87c4df55d8e0.png)
+
+
+Podemos parar la musica con la letra M.
 
  
 # ENEMIGOS
