@@ -45,7 +45,7 @@ Podemos parar la musica con la letra M.
 
 <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797263-94defd80-cbf5-11eb-9317-1830171691e6.png) Los Ood: disparan más rapido que los Dravos. Tripulación: <img>![doctor-ood-whoniverse-weeping-angel-slitheen-png-favpng-yQexy7QHKuarGaJwheWuPcWLF](https://user-images.githubusercontent.com/80365596/121938556-5561ff80-cd22-11eb-9f9b-ae21b06507fe.png)
 
-<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797274-a0322900-cbf5-11eb-80c8-6f4d23d20393.png) Daleks: disparan igual a los Dravros pero pueden regenrar mas naves de Los Ood. Tripulación : <img>![Dalek_doctor_who_dw_desktop_1012x1922_wallpaper-389433](https://user-images.githubusercontent.com/80365596/121938867-b689d300-cd22-11eb-8154-0a6c90f72987.png)
+<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797274-a0322900-cbf5-11eb-80c8-6f4d23d20393.png) Daleks: disparan igual a los Dravros pero pueden regenerar más naves de Los Ood. Tripulación : <img>![Dalek_doctor_who_dw_desktop_1012x1922_wallpaper-389433](https://user-images.githubusercontent.com/80365596/121938867-b689d300-cd22-11eb-8154-0a6c90f72987.png)
 
 
 # NIVELES
