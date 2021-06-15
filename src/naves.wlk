@@ -98,7 +98,11 @@ class Invader inherits Astronave {
 
 	override method destruirse() {
 		super()
-		sonidoChoque.play() 
+		try {	// Para que de bien en los test aunque no haya empezado el juego
+			sonidoChoque.play() 
+			}
+		catch e: wollok.lang.Exception {}
+		
 		flotaInvader.quitarInvader(self)
 	}
 

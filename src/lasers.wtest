@@ -21,7 +21,7 @@ describe "Laser nave" {
 		const invader = new Dalek(position = game.at(7, 7))
 		game.addVisual(invader)
 		game.addVisual(laserNave)
-		laserNave.chocarCon(invader)
+		laserNave.chocarCon(invader) 
 		assert.notThat(game.allVisuals().contains(laserNave)) // Añade el visual
 		assert.notThat(game.allVisuals().contains(invader)) // Añade el visual
 	}

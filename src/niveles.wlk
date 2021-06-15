@@ -9,14 +9,17 @@ const sonidoMusica = new Sound(file = "aroundTheWorld.mp3")
 // Esto se ejecuta antes del game.start() entonces, al no haber arrancado
 // el juego, la musica no se puede empezar a reproducir.
 // Intente poner el sonidoMusica.play() dentro de un schedule pero no funciono
-object inicio {	
+object inicio {
+
 	var property image = "spaceInvaders.png"
+
 	method iniciar() {
 		game.addVisualIn(self, game.at(0, 0)) // Muestra la imagen en la posicion 0,0
-		game.schedule(500, {  pantallaInicial.iniciar() })
+		game.schedule(500, { pantallaInicial.iniciar()})
 	}
-	
+
 }
+
 object pantallaInicial {
 
 	var property image = "spaceInvaders.png"
@@ -123,7 +126,7 @@ object fin {
 	var property image // / Cambia segun gane o pierda
 	// const sonidoPerder = new Sound(file = "perder.wav")
 
-	method iniciar() {	// Ganar
+	method iniciar() { // Ganar
 		image = "ganaste.png"
 		self.final()
 	}
@@ -161,8 +164,7 @@ object configurar {
 	method musicaOnOff() {
 		keyboard.m().onPressDo({ if (sonidoMusica.paused()) {
 				sonidoMusica.resume()
-			}
-			else {
+			} else {
 				sonidoMusica.pause()
 			}
 		})
