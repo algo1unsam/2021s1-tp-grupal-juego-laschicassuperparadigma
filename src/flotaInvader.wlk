@@ -48,7 +48,7 @@ object flotaInvader {
 		})
 	}
 
-	// Si un invader pasa, resta una vida y empieza de nuevo
+	// Si un invader pasa, resta una vida y empieza de nuevo 
 	method ganoLaInvasion(nivel) {
 		nave.destruirse()
 		invaders.forEach({ invader => invaders.remove(invader)})
