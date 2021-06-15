@@ -91,7 +91,7 @@ object nivel2 inherits Nivel {
 
 	override method iniciarNivel() {
 		super()
-		flotaInvader.crearInvaders(4, 7, 0, 18)
+		flotaInvader.crearInvaders(4, 6, 1, 18)
 		flotaInvader.moverInvaders(1000, self)
 		flotaInvader.dispararLasersInvaders(2000, self)
 		flotaInvader.iniciarPoderes(4000)
