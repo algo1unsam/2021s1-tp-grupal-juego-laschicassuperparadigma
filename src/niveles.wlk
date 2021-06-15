@@ -143,6 +143,7 @@ object fin {
 		game.clear()
 		game.addVisualIn(self, game.at(0, 0))
 		configurar.enterParaFin() // Al presionar enterfinaliza
+		sonidoMusica.stop()
 	}
 
 }
