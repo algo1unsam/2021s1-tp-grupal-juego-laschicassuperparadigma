@@ -28,7 +28,7 @@ Utiliza la barra espaceadora para disparar.
 <img>![barra espaciadora](https://user-images.githubusercontent.com/80365596/121926843-c1d60200-cd14-11eb-9bce-87c4df55d8e0.png)
 
 
-Podemos parar la musica con la letra M.
+Podemos parar la música con la letra M.
 
 <img>![M](https://user-images.githubusercontent.com/78182038/122002626-5f1e4e00-cd88-11eb-8251-6eeb7530770e.png)
 
