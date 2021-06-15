@@ -93,7 +93,7 @@ object nivel2 inherits Nivel {
 		super()
 		flotaInvader.crearInvaders(4, 7, 0, 18)
 		flotaInvader.moverInvaders(1000, self)
-		flotaInvader.dispararLasersInvaders(3000, self)
+		flotaInvader.dispararLasersInvaders(2000, self)
 		flotaInvader.iniciarPoderes(4000)
 		nave.mostrarVidas()
 	}
@@ -110,7 +110,7 @@ object nivel3 inherits Nivel {
 		super()
 		flotaInvader.crearInvaders(6, 4, 0, 18)
 		flotaInvader.moverInvaders(1000, self)
-		flotaInvader.dispararLasersInvaders(2000, self)
+		flotaInvader.dispararLasersInvaders(250, self)
 		flotaInvader.iniciarPoderes(4000)
 		nave.mostrarVidas()
 	}
