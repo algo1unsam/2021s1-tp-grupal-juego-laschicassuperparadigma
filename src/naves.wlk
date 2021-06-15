@@ -33,21 +33,9 @@ object nave inherits Astronave {
 	var cantVidas = 3
 	var vidas = []
 
-	method restarVida() {
-		
-		sonidosPerderVidas.first().play()
-		sonidosPerderVidas.remove(sonidosPerderVidas.first())
-		sonidosPerderVidas.add(new Sound(file = "perder.wav")) // Agrego un sonido para poder reproducirlo la segunda vez
-		cantVidas -= 1
-		if (cantVidas == 0) {
-			fin.perder()
-		}
-		if (not vidas.isEmpty()) {
-			game.removeVisual(vidas.last())
-			vidas.remove(vidas.last())
-		}
-	}
 
+	method cantVidas() = cantVidas
+	
 	method crearVidas() {
 		(cantVidas - 1).times({ i => vidas.add(new Vida(position = game.at(i - 1, 20)))})
 	}
@@ -63,7 +51,20 @@ object nave inherits Astronave {
 	override method image() = "Nave.png"
 
 	override method destruirse() {	// No saca el visual porque entra la otra vida
-		self.restarVida()
+		try{
+			sonidosPerderVidas.first().play()
+		}
+		catch e: wollok.lang.Exception {}
+		sonidosPerderVidas.remove(sonidosPerderVidas.first())
+		sonidosPerderVidas.add(new Sound(file = "perder.wav")) // Agrego un sonido para poder reproducirlo la segunda vez
+		cantVidas -= 1
+		if (cantVidas == 0) {
+			fin.perder()
+		}
+		if (not vidas.isEmpty()) {
+			game.removeVisual(vidas.last())
+			vidas.remove(vidas.last())
+		}
 	}
 
 	method chocarCon(invader) {
