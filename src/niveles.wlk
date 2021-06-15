@@ -6,9 +6,7 @@ import flotaInvader.*
 // Instancio un objeto para la musica de fondo
 const sonidoMusica = new Sound(file = "aroundTheWorld.mp3")
 
-// Esto se ejecuta antes del game.start() entonces, al no haber arrancado
-// el juego, la musica no se puede empezar a reproducir.
-// Intente poner el sonidoMusica.play() dentro de un schedule pero no funciono
+
 object inicio {
 
 	var property image = "spaceInvaders.png"

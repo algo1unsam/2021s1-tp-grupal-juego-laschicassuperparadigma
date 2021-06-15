@@ -56,9 +56,14 @@ object flotaInvader {
 		game.schedule(3000, { nivel.iniciar()}) // Faltaria poner alguna presentacion del nivel
 	}
 
-	method iniciarPoderes(tiempo) {
-		game.onTick(tiempo, "Berretines", { self.filaMasBaja().anyOne().iniciarPoder()})
+method iniciarPoderes(tiempo) {
+		game.onTick(tiempo, "Berretines", { 
+			if (not self.invaders().isEmpty()) {
+			self.filaMasBaja().anyOne().iniciarPoder()
+		}
+		})
+		
 	}
-
-}
+	}
+	
 
