@@ -59,11 +59,11 @@ class Nivel {
 		configurar.configurarColisiones()
 	}
 
-	method finalizarNivel() {
+method finalizarNivel() {
+		game.schedule(100, { game.clear() })
 		game.clear() // Remuevo todos los visual
 		game.schedule(500, { self.siguiente().iniciar()})
 	}
-
 	method siguiente()
 
 	method image()
@@ -110,7 +110,7 @@ object nivel3 inherits Nivel {
 		super()
 		flotaInvader.crearInvaders(6, 4, 0, 18)
 		flotaInvader.moverInvaders(1000, self)
-		flotaInvader.dispararLasersInvaders(250, self)
+		flotaInvader.dispararLasersInvaders(1000, self)
 		flotaInvader.iniciarPoderes(4000)
 		nave.mostrarVidas()
 	}
@@ -124,16 +124,18 @@ object nivel3 inherits Nivel {
 object fin {
 
 	var property image // / Cambia segun gane o pierda
-	// const sonidoPerder = new Sound(file = "perder.wav")
+	const sonidoPerder = new Sound(file = "sonidoGameOver.wav")
+	const sonidoGanar = new Sound(file = "sonidoGanaste.wav")
 
 	method iniciar() { // Ganar
 		image = "ganaste.png"
+		sonidoGanar.play()
 		self.final()
 	}
 
 	method perder() {
 		image = "gameOver.png"
-			// sonidoPerder.play()
+	    sonidoPerder.play()
 		self.final()
 	}
 
@@ -175,4 +177,3 @@ object configurar {
 	}
 
 }
-

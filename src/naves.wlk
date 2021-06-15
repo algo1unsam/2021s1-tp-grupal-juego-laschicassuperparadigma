@@ -120,17 +120,26 @@ class Bicho1 inherits Invader {
 }
 
 class Bicho2 inherits Invader {
-
+	var puedeDestruirse = true
 	override method image() = "Bicho2.png" 
 	
 	// Empieza a tirar a lo loco y despues de 1500 ms para
 	override method iniciarPoder() {
-		game.onTick(200, "disparar ametralladora" + self.identity().toString(), { self.disparar()})
-		game.schedule(1500, { game.removeTickEvent("disparar ametralladora" + self.identity().toString())})
+		game.onTick(200, "disparar ametralladora" + self.identity().toString(), { self.disparar()
+			puedeDestruirse = false
+		})
+		game.schedule(1500, { game.removeTickEvent("disparar ametralladora" + self.identity().toString())
+			game.schedule(500, {puedeDestruirse = true}) 
+		})
+	}
+	
+	override method destruirse() {
+		if(puedeDestruirse){	// Si no esta disparando el poder se destruye, sino no hace nada
+			super()
+		}
 	}
 
 }
-
 class Dalek inherits Invader {
 	var creoInvader = false
 	override method image() = "Bicho5.png" 
