@@ -36,7 +36,7 @@ Utiliza la barra espaceadora para disparar.
 
 
 
-<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797274-a0322900-cbf5-11eb-80c8-6f4d23d20393.png) Los Ood: disparan más rapido que los Dravos. tripulacion: Tripulacion :<img>![doctor-ood-whoniverse-weeping-angel-slitheen-png-favpng-yQexy7QHKuarGaJwheWuPcWLF](https://user-images.githubusercontent.com/80365596/121938556-5561ff80-cd22-11eb-9f9b-ae21b06507fe.png)
+<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797274-a0322900-cbf5-11eb-80c8-6f4d23d20393.png) Los Ood: disparan más rapido que los Dravos. Tripulacion: Tripulacion :<img>![doctor-ood-whoniverse-weeping-angel-slitheen-png-favpng-yQexy7QHKuarGaJwheWuPcWLF](https://user-images.githubusercontent.com/80365596/121938556-5561ff80-cd22-11eb-9f9b-ae21b06507fe.png)
 
 <img>![Bicho10](https://user-images.githubusercontent.com/80365596/121797265-96a8c100-cbf5-11eb-8ff2-030649c07cc1.png) Daleks: disparan igual a los Dravros pero pueden regenrar mas naves de Los Ood. Tripulacion : <img>![Dalek_doctor_who_dw_desktop_1012x1922_wallpaper-389433](https://user-images.githubusercontent.com/80365596/121938867-b689d300-cd22-11eb-8154-0a6c90f72987.png)
 
