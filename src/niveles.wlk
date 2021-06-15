@@ -125,7 +125,7 @@ object fin {
 
 	var property image // / Cambia segun gane o pierda
 	const sonidoPerder = new Sound(file = "sonidoGameOver.wav")
-	const sonidoGanar = new Sound(file = "perder.wav")
+	const sonidoGanar = new Sound(file = "sonidoGanaste.wav")
 
 	method iniciar() { // Ganar
 		image = "ganaste.png"
