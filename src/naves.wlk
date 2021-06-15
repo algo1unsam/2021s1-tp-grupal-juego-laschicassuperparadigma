@@ -6,7 +6,7 @@ import flotaInvader.*
 class Astronave {
 
 	var property position = game.center()
-	var lasersDisparados = [] // Esto lo creo para que los lasers que crean el método disparar no mueran con el metodo.
+	var lasersDisparados = [] // Esto lo creo para que los lasers que crean el método disparar no mueran con el metodo. 
 	
 	method lasersDisparados() = lasersDisparados
 
