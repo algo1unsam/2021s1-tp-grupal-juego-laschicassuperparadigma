@@ -16,7 +16,7 @@ describe "Nave" {
 		nave.disparar()
 		assert.equals(1, nave.lasersDisparados().size())
 	}
-	test "Nave choca y pierde una vidas" {
+	test "Nave choca y pierde una vida" {
 		nave.destruirse()
 		assert.equals(2,nave.cantVidas())
 	}
