@@ -22,6 +22,7 @@ La nave se mueve para izquierda o derecha con las flechas del teclado ← o → 
 
 <img>![fechas](https://user-images.githubusercontent.com/80365596/121926802-b7b40380-cd14-11eb-8229-7bcdc0418d93.png)
 
+Podemos parar la musica con la letra M
 
 Utiliza la barra espaceadora para disparar.
 
@@ -30,11 +31,14 @@ Utiliza la barra espaceadora para disparar.
  
 # ENEMIGOS
 
- <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797263-94defd80-cbf5-11eb-9317-1830171691e6.png) Davros: Tienen 1 de vida y disparan a una velocidad normal. Puntos = 100.
+ <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797263-94defd80-cbf5-11eb-9317-1830171691e6.png) Davros: disparan a una velocidad normal. Tripulacion: <img>![WETG](https://user-images.githubusercontent.com/80365596/121939120-036da980-cd23-11eb-8644-a2847224800a.png)
 
-<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797274-a0322900-cbf5-11eb-80c8-6f4d23d20393.png) Los Ood: Tienen 1 de vida y disparan más rapido que los Comunes. Puntos = 300.
 
-<img>![Bicho10](https://user-images.githubusercontent.com/80365596/121797265-96a8c100-cbf5-11eb-8ff2-030649c07cc1.png) Daleks: Tienen 3 de vida y disparan igual a los Comunes. Puntos = 500
+
+<img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797274-a0322900-cbf5-11eb-80c8-6f4d23d20393.png) Los Ood: disparan más rapido que los Dravos. tripulacion: Tripulacion :<img>![doctor-ood-whoniverse-weeping-angel-slitheen-png-favpng-yQexy7QHKuarGaJwheWuPcWLF](https://user-images.githubusercontent.com/80365596/121938556-5561ff80-cd22-11eb-9f9b-ae21b06507fe.png)
+
+<img>![Bicho10](https://user-images.githubusercontent.com/80365596/121797265-96a8c100-cbf5-11eb-8ff2-030649c07cc1.png) Daleks: disparan igual a los Dravros pero pueden regenrar mas naves de Los Ood. Tripulacion : <img>![Dalek_doctor_who_dw_desktop_1012x1922_wallpaper-389433](https://user-images.githubusercontent.com/80365596/121938867-b689d300-cd22-11eb-8154-0a6c90f72987.png)
+
 
 # NIVELES
 

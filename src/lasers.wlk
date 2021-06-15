@@ -3,14 +3,18 @@ import naves.*
 
 class Laser {
 	var property position
-	const sonidoChoque = new Sound(file = "llaser.wav")	//////////
+	const sonidoLaser = new Sound(file = "llaser.wav")
 
 	method serDisparado() {
 		self.irAPosicionSiguiente() // En la nave es uno mas arriba, en los invaders uno mas abajo
 		self.avanzar()
 		game.addVisual(self) // Al ser disparado se muestra en pantalla
 		self.configurarColicion()
-		sonidoChoque.play()
+		try {	// Para que de bien en los test aunque no haya empezado el juego
+			sonidoLaser.play()
+		}
+		catch e: wollok.lang.Exception {}
+		
 	}
 
 	method avanzar() {
@@ -34,7 +38,12 @@ class Laser {
 
 	method destruirse() {
 		game.removeVisual(self)
-		game.removeTickEvent("DISPARO NAVE" + self.identity().toString()) 	// Elimino onTick para este laser en particular
+		try {	// Para que de bien en los test aunque no haya empezado el juego
+			game.removeTickEvent("DISPARO NAVE" + self.identity().toString()) 	// Elimino onTick para este laser en particular
+		}
+		catch e: wollok.lang.Exception {}
+		
+
 	}
 	
 	method image() 
@@ -42,6 +51,7 @@ class Laser {
 	method estaFueraDeLaPantalla()
 
 }
+
 
 class LaserNave inherits Laser {
 

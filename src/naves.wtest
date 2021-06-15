@@ -12,7 +12,7 @@ describe "Nave" {
 		assert.equals(game.at(4, 0), nave.position())
 	}
 
-	test "Disparar" {	// No le gusta que tenga sonido pero antes de eso daba bien
+	test "Disparar" {	
 		nave.disparar()
 		assert.equals(1, nave.lasersDisparados().size())
 	}
