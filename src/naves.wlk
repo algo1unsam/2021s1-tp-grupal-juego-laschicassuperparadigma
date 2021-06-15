@@ -129,7 +129,7 @@ class Bicho2 inherits Invader {
 			puedeDestruirse = false
 		})
 		game.schedule(1500, { game.removeTickEvent("disparar ametralladora" + self.identity().toString())
-			puedeDestruirse = true
+			game.schedule(500, {puedeDestruirse = true}) 
 		})
 	}
 	
