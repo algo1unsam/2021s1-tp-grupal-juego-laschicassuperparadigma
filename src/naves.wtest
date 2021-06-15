@@ -18,7 +18,7 @@ describe "Nave" {
 	}
 	test "Nave choca y pierde una vida" {
 		nave.destruirse()
-		assert.equals(2,nave.cantVidas())
+		assert.equals(2,nave.cantVidas()) // ...
 	}
 
 }
