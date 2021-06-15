@@ -46,7 +46,7 @@ NIVEL1 = dificultad: Facil, tipo de invarder: Davros.     <img>![Bicho2](https:/
 
 <img>![nivel1](https://user-images.githubusercontent.com/80365596/121797508-ffdd0400-cbf6-11eb-9a39-89cda5cfc95a.png)
 
-NIVEL2 = dificultad : Intermedia , tipo de invader: Davros y Los Ood.    <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797551-4c284400-cbf7-11eb-86d3-47622df1f51f.png) <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797549-4894bd00-cbf7-11eb-8b7c-9b7c677c8b70.png)
+NIVEL2 = dificultad : Intermedia , tipo de invader: Davros y Los Ood.    <img>![Bicho5](https://user-images.githubusercontent.com/80365596/121797551-4c284400-cbf7-11eb-86d3-47622df1f51f.png) <img>![Bicho2](https://user-images.githubusercontent.com/80365596/121797549-4894bd00-cbf7-11eb-8b7c-9b7c677c8b70.png)<img>![Bicho10](https://user-images.githubusercontent.com/80365596/121797591-8265c380-cbf7-11eb-8bee-5d073466453b.png)
 
 <img>![nivel2](https://user-images.githubusercontent.com/80365596/121797561-58ac9c80-cbf7-11eb-8e27-cae61153f95b.png)
 
